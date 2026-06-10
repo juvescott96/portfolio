@@ -1,0 +1,20 @@
+:root {
+
+    /* Colors */
+    --primary-color: #89BCD9;
+    --secondary-color: #F8F5EC;
+    --color-accent: #2D3840;
+
+    --color-success: #97E163;
+    --color-error: #E44C36;
+    --color-inactive: #BFC1C3;
+
+    --background-color: #262E34;
+
+    /* Font */
+    --font-primary: 'Anta', sans-serif;
+
+    /* Border Radius */
+    --radius-sm: 15px;
+    --radius-md: 30px;
+}
