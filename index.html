@@ -14,6 +14,7 @@
         rel="stylesheet">
     <title>Dustin Condello</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -114,7 +115,16 @@
     <section class="why-me-section">
         <h2 class="primary-color">Why me?</h2>
         <div class="why-me-information">
-            <div>location</div>
+            <div class="about-typing">
+                <img id="aboutIcon" class="about-icon" src="./assets/icons/location.png" alt="Location Icon">
+
+                <p class="about-text">
+                    <span id="typedPrimaryText" class="text-primary"></span>
+                    <span id="typedSecondaryText" class="text-secondary"></span>
+                    <span id="typedDots" class="text-primary"></span>
+                    <span class="cursor">|</span>
+                </p>
+            </div>
             <div>
                 <div>text for me</div>
                 <div>
@@ -180,6 +190,8 @@
     <section class="contact-section"></section>
     <footer></footer>
 
+
+    <script src="./scripts/about-me.js"></script>
 </body>
 
 </html>

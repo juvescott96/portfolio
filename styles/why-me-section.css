@@ -13,3 +13,49 @@
     align-items: center;
     width: 100%;
 }
+
+.about-typing {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 80px;
+}
+
+.about-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.about-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.cursor {
+  color: var(--primary-color);
+  animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
