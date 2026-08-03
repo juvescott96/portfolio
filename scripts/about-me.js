@@ -3,7 +3,7 @@ const items = [
         icon: "./assets/icons/location.png",
         alt: "Location icon",
         primaryText: "I am",
-        secondaryText: " located in Frankfurt",
+        secondaryText: " located in Hanau",
         dots: "..."
     },
     {
@@ -11,13 +11,6 @@ const items = [
         alt: "Remote work icon",
         primaryText: "I am",
         secondaryText: " open to remote work",
-        dots: "..."
-    },
-    {
-        icon: "./assets/icons/remote.png",
-        alt: "Relocation icon",
-        primaryText: "I am",
-        secondaryText: " open to relocate",
         dots: "..."
     }
 ];

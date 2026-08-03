@@ -17,6 +17,8 @@ body {
     font-family: var(--font-primary);
     background-color: var(--background-color);
     color: var(--secondary-color);
+    margin: 0 auto;
+    max-width: 1440px;
     
 }
 
