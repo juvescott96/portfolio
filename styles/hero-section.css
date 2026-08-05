@@ -16,7 +16,7 @@
 .hero-img{
     width: 100%;
     height: auto;
-    max-width: 340px;
+    max-width: 480px;
 }
 
 .right-of-hero{
@@ -32,7 +32,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: scale(0.6);
+    transform: scale(0.7);
+    gap: 3px;
 }
 
 .brackets{
@@ -53,7 +54,7 @@
 .arrow-down{
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .color-primary{
@@ -79,8 +80,8 @@
 
 .social-btn {
     position: relative;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     border: none;
     padding: 0;
 }
@@ -88,8 +89,8 @@
 .social-btn img {
     position: absolute;
     inset: 0;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
 }
 
 .icon-hover {

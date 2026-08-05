@@ -27,8 +27,6 @@ h1 {
     font-weight: 400;
 }
 
-
-
 .icons{
     width: 20px;
     height: 20px;
@@ -40,8 +38,8 @@ h1 {
 }
 
 .arrow svg{
-    width: 20px;
-    height: 40px;
+    width: 30px;
+    height: 60px;
 }
 
 a{
