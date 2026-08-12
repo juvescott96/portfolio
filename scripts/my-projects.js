@@ -25,7 +25,9 @@ function showProjects(index) {
     const project = projects[index];
 
     document.getElementById("projectContent").innerHTML = `
-                    <div class="project-text">
+
+            <div class="project-content">
+                <div class="project-text">
                 <h3>About the project</h3>
                 <p>${project.description}</p>
 
@@ -41,6 +43,7 @@ function showProjects(index) {
                 <img src="${project.image}" alt="${project.title}">
                 <a href="${project.liveUrl}" target="_blank">Live Test</a>
                 <a href="${project.githubUrl}" target="_blank">GitHub</a>
+            </div>
             </div>
             `;
 

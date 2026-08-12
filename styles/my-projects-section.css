@@ -2,13 +2,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 60px;
+    padding: 60px 0px;
     width: 100%;
 }
 
 .project-details{
     width: 100%;
-    padding: 60px 60px 0px 60px;
+    padding-top: 60px;
+}
+
+.project-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    width: 100%;
 }
 
 .tabs-projects {
@@ -31,7 +39,7 @@
 
 .about-projects {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 48px;
     padding: 40px 80px;
     background-color: var(--color-accent);
