@@ -215,7 +215,13 @@
         </section>
         <section class="my-projects-section">
             <h2 class="primary-color">My Projects</h2>
-            <div class="project-details"></div>
+            <div class="project-details">
+                <div class="tabs-projects">
+                    <button onclick="showProjects(0)" class="project-tab active-tab">1. Join</button>
+                    <button onclick="showProjects(1)" class="project-tab">2. El Pollo Loco</button>
+                </div>
+                <div id="projectContent" class="about-projects"></div>
+            </div>
         </section>
         <section class="references-section"></section>
         <section class="contact-section"></section>
@@ -268,6 +274,7 @@
 
 
     <script src="./scripts/about-me.js"></script>
+    <script src="./scripts/my-projects.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,43 @@
+.my-projects-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 60px;
+    width: 100%;
+}
+
+.project-details{
+    width: 100%;
+    padding: 60px 60px 0px 60px;
+}
+
+.tabs-projects {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.project-tab {
+    border: none;
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+.active-tab {
+    background-color: var(--color-accent);
+    color: var(--secondary-color);
+    border-radius: 12px 12px 0 0;
+}
+
+.about-projects {
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 40px 80px;
+    background-color: var(--color-accent);
+}
+
+.project-preview img {
+    width: 360px;
+    max-width: 100%;
+}
