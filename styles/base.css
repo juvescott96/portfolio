@@ -1,97 +1,100 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    min-height: 100%;
-    scroll-behavior: smooth;
+  min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: var(--font-primary);
-    background-color: var(--background-color);
-    color: var(--secondary-color);
-    margin: 0 auto;
-    
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  margin: 0 auto;
 }
 
-header{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-main{
-    flex: 1;
-    width: 100%;
-
+main {
+  flex: 1;
+  width: 100%;
 }
 
 h1 {
-    font-size:clamp(1.8rem, 5vw, 6rem);
-    font-weight: 400;
+  font-size: clamp(1.8rem, 5vw, 6rem);
+  font-weight: 400;
 }
 
 h2 {
-    font-size: clamp(1.2rem, 3vw, 3rem);
-    font-weight: 400;
+  font-size: clamp(1.2rem, 3vw, 3rem);
+  font-weight: 400;
 }
 
 h3 {
-    font-size: clamp(1rem, 2vw, 2rem);
-    font-weight: 200;
-    margin: 0;
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 200;
+  margin: 0;
 }
 
-.icons{
-    width: 20px;
-    height: 20px;
-    color: #89BCD9;
+h4 {
+  font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+  font-weight: 200;
 }
 
-.bg-color{
-    color: var(--background-color);
+.icons {
+  width: 20px;
+  height: 20px;
+  color: #89bcd9;
 }
 
-.arrow svg{
-    width: 30px;
-    height: 60px;
+.bg-color {
+  color: var(--background-color);
 }
 
-a{
-    color: var(--background-color);
-    font-family: var(--font-secondary);
-    font-size: clamp(0.8rem, 2vw, 1.2rem);
-    text-decoration: none;
-    transition: all 0.3s ease;
+.arrow svg {
+  width: 30px;
+  height: 60px;
 }
 
-a:hover{
-    color: var(--secondary-color);
+a {
+  color: var(--background-color);
+  font-family: var(--font-secondary);
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.primary-color{
-    color: var(--primary-color);
+a:hover {
+  color: var(--secondary-color);
 }
 
-button{
-    background: none;
-    cursor: pointer;
-    font-family: var(--font-secondary);
-    font-size: 10px;
-    font-weight: 300;
-    color: var(--primary-color);
-    padding: 8px 18px;
-    border-radius: 30px;
-    border-color: var(--primary-color);
-    border: 0.5px solid;
+.primary-color {
+  color: var(--primary-color);
+}
+
+button {
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--primary-color);
+  padding: 8px 18px;
+  border-radius: 30px;
+  border-color: var(--primary-color);
+  border: 0.5px solid;
 }

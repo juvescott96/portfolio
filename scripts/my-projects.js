@@ -6,6 +6,11 @@ const projects = [
         organization: "Akademie",
         teamwork: "ja ja ve ve",
         image: "./images/join.png",
+        technologies: [
+            "./assets/icons/javascript.png",
+            "./assets/icons/css.png",
+            "./assets/icons/html.png"
+        ],
         liveUrl: "#",
         githubUrl: "#"
     },
@@ -16,6 +21,11 @@ const projects = [
         organization: "Akademie",
         teamwork: "juhuuu",
         image: "./images/el-pollo-loco.png",
+        technologies: [
+            "./assets/icons/javascript.png",
+            "./assets/icons/css.png",
+            "./assets/icons/html.png"
+        ],
         liveUrl: "#",
         githubUrl: "#"
     }
@@ -57,13 +67,23 @@ function showProjects(index) {
                     </div>
                 </div>
             </div>
+                        <div class="project-preview">
+                            <div class="project-technologies">
+                                <h4>Technologies</h4>
+                                <div class="technology-icons">
+                                    ${project.technologies.map(technology => `
+                                    <img src="${technology}" alt="Technology icon">
+                                    `).join("")}
+                                </div>
+                            </div>
 
-            <div class="project-preview">
+                            <img class="project-image" src="${project.image}" alt="${project.title}">
 
-                <img src="${project.image}" alt="${project.title}">
-                <a href="${project.liveUrl}" target="_blank">Live Test</a>
-                <a href="${project.githubUrl}" target="_blank">GitHub</a>
-            </div>
+                            <div class="project-buttons">
+                                <button onclick="window.open('${project.liveUrl}', '_blank')">Live Test</button>
+                                <button onclick="window.open('${project.githubUrl}', '_blank')">GitHub</button>
+                            </div>
+                        </div>
         </div>
             `;
 
