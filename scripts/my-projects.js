@@ -26,25 +26,45 @@ function showProjects(index) {
 
     document.getElementById("projectContent").innerHTML = `
 
-            <div class="project-content">
-                <div class="project-text">
-                <h3>About the project</h3>
-                <p>${project.description}</p>
+        <div class="project-content">
+            <div class="project-text">
 
-                <h3>How I have organised my work process</h3>
-                <p>${project.organization}</p>
+                <div class="project-info-block">
+                    <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="Ellipse Icon">
+                    <div>
+                        <div class="project-heading-row">
+                            <h3>About the project</h3>
+                            <p>Duration: ${project.duration}</p>
+                        </div>
+                        <p>${project.description}</p>
+                    </div>
+                </div>
 
-                <h3>My group work experience</h3>
-                <p>${project.teamwork}</p>
+
+                <div class="project-info-block">
+                    <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="Ellipse Icon">
+                    <div>
+                        <h3>How I have organised my work process</h3>
+                        <p>${project.organization}</p>
+                    </div>
+                </div>
+
+                <div class="project-info-block">
+                    <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="Ellipse Icon">
+                    <div>
+                        <h3>My group work experience</h3>
+                        <p>${project.teamwork}</p>
+                    </div>
+                </div>
             </div>
 
             <div class="project-preview">
-                <p>Duration: ${project.duration}</p>
+
                 <img src="${project.image}" alt="${project.title}">
                 <a href="${project.liveUrl}" target="_blank">Live Test</a>
                 <a href="${project.githubUrl}" target="_blank">GitHub</a>
             </div>
-            </div>
+        </div>
             `;
 
     updateActiveTab(index);
