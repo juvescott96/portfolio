@@ -1,89 +1,120 @@
-.my-skills-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 60px 60px;
-    width: 100%;
+.my-skills-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 60px;
+  width: 100%;
 }
 
-.skills-information{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 40px;
-    width: 100%;
-    max-width: 1440px;
+.skills-information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1440px;
 }
 
-.icons-skill{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+.icons-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
-.icons-skill img{
-    width: 30px;
-    height: 30px;
+.icons-skill img {
+  width: 30px;
+  height: 30px;
 }
 
-.icons-skill p{
-    font-size: 10px;
-    font-family: var(--font-secondary);
-    color: var(--primary-color);
-    
+.icons-skill p {
+  font-size: 10px;
+  font-family: var(--font-secondary);
+  color: var(--primary-color);
 }
 
-.skill-set{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 400px;
+.skill-set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 400px;
 }
 
-.currently-learning{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.currently-learning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.learning-circle{
-    width: 400px;
-    height: 400px;
-    background-image: url("../assets/img/skill-ellipse.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-sizing: border-box;
-    text-align: center;
-    gap: 30px;
+.learning-circle {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 30px;
 }
 
-.learning{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-    color: #89BCD9;
+.learning-circle::before,
+.learning-circle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 300ms ease-in-out;
+  z-index: 0;
 }
 
-.learning img{
-    width: 32px;
-    height: 32px;
+.learning-circle::before {
+  background-image: url("../assets/img/skill-ellipse.png");
+  opacity: 1;
 }
 
-.learning-icon{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+.learning-circle::after {
+  background-image: url("../assets/img/skill-ellipse-hover.png");
+  opacity: 0;
 }
 
-.learning-text{
-    max-width: 300px;
+.learning-circle:hover::before {
+  opacity: 0;
+}
+
+.learning-circle:hover::after {
+  opacity: 1;
+}
+
+.learning-circle > * {
+  position: relative;
+  z-index: 1;
+}
+
+.learning {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  color: #89bcd9;
+}
+
+.learning img {
+  width: 32px;
+  height: 32px;
+}
+
+.learning-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.learning-text {
+  max-width: 300px;
 }
