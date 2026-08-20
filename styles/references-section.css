@@ -6,3 +6,57 @@
   width: 100%;
   gap: 40px;
 }
+
+.references-shape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.references-circle {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 30px;
+}
+
+.references-circle::before,
+.references-circle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 300ms ease-in-out;
+  z-index: 0;
+}
+
+.references-circle::before {
+  background-image: url("../assets/img/references-ellipse.png");
+  opacity: 1;
+}
+
+.references-circle::after {
+  background-image: url("../assets/img/references-ellipse-hover.png");
+  opacity: 0;
+}
+
+.references-circle:hover::before {
+  opacity: 0;
+}
+
+.references-circle:hover::after {
+  opacity: 1;
+}
+
+.references-circle > * {
+  position: relative;
+  z-index: 1;
+}
