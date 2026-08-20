@@ -1,23 +1,26 @@
 menu {
-    background-color: var(--primary-color);
-    width: 100%;
+  background-color: var(--primary-color);
+  width: 100%;
+  height: 80px;
+  position: sticky;
+  top: 0;
 }
 
 .nav-links {
-    display: flex;
-    gap: 50px;
+  display: flex;
+  gap: 50px;
 }
 
 .language-switcher {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
-.menu-content{
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.menu-content {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
