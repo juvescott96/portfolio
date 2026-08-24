@@ -5,3 +5,78 @@
   padding: 60px 60px;
   width: 100%;
 }
+
+.contact-section p {
+  font-size: 18px;
+  font-family: var(--font-secondary);
+  font-weight: 300;
+}
+
+.contact-text-mail-phone {
+  display: flex;
+  flex-direction: row;
+  max-width: 1440px;
+  justify-content: space-evenly;
+  padding-top: 60px;
+  gap: 30px;
+}
+
+.contact-text {
+  max-width: 400px;
+}
+
+.contact-mail-phone {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact-mail,
+.contact-phone {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.contact-mail:hover,
+.contact-phone:hover {
+  color: var(--primary-color);
+}
+
+.icon-contact-mail {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-contact-mail-hover {
+  display: none;
+}
+
+.contact-mail:hover .icon-contact-mail {
+  display: none;
+}
+
+.contact-mail:hover .icon-contact-mail-hover {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.icon-contact-phone {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-contact-phone-hover {
+  display: none;
+}
+
+.contact-phone:hover .icon-contact-phone {
+  display: none;
+}
+
+.contact-phone:hover .icon-contact-phone-hover {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
