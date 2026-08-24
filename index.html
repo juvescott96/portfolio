@@ -265,6 +265,45 @@
                     </div>
                 </div>
             </div>
+            <form class="contact-form" id="contactform" novalidate>
+                <div class="contact-row">
+                    <label class="contact-field">
+                        <span class="field-label" id="nameLabel">Your Name</span>
+                        <input id="name" name="name" type="text" autocomplete="name">
+                        <img src="./assets/icons/done.png" alt="Done" class="field-check" id="nameCheck">
+                    </label>
+
+                    <label class="contact-field">
+                        <span class="field-label" id="emailLabel">Your Email</span>
+                        <input id="email" name="email" type="email" autocomplete="email">
+                        <img src="./assets/icons/done.png" alt="Done" class="field-check" id="emailCheck">
+                    </label>
+                </div>
+
+                <label class="contact-field">
+                    <span class="field-label" id="messageLabel">Your Message</span>
+                    <textarea name="message" id="message"></textarea>
+                    <img src="./assets/icons/done.png" alt="Done" class="field-check field-check-textarea"
+                        id="messageCheck">
+                </label>
+
+                <label class="privacy-row" id="privacyLabel">
+                    <input id="privacy" name="privacy" type="checkbox" />
+                    <img id="privacyIcon" class="privacy-icon" src="./assets/icons/checkbox-default.png" alt="">
+                    <span>
+                        I've read the
+                        <a href="./privacy-policy.html">privacy policy</a>
+                        and agree to the processing of my data as outlined.
+                    </span>
+                </label>
+                <p id="privacyError" class="privacy-error"></p>
+
+                <div class="form-footer">
+                    <p id="formFeedback"></p>
+                    <button id="sendButton" type="submit" disabled>Send</button>
+                </div>
+            </form>
+
         </section>
     </main>
     <footer>
@@ -316,6 +355,7 @@
 
     <script src="./scripts/about-me.js"></script>
     <script src="./scripts/my-projects.js"></script>
+    <script src="./scripts/contact-form.js"></script>
 </body>
 
 </html>
