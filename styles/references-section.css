@@ -9,13 +9,16 @@
 
 .references-section h3 {
   font-family: var(--font-secondary);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .references-shape {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0px 100px;
 }
 
 .references-circle {

@@ -17,6 +17,7 @@
   align-items: center;
   max-width: 1440px;
   width: 100%;
+  margin: 0px 100px;
 }
 
 .tabs-projects {
@@ -35,6 +36,7 @@
 .project-tabs {
   width: 100%;
   max-width: 1440px;
+  margin: 0px 100px;
 }
 
 .active-tab {

@@ -1,11 +1,10 @@
-footer{
-    background-color: var(--primary-color);
-    height: 160px;
-    width: 100%;
-    display: flex;
-    align-items: center;
+footer {
+  background-color: var(--primary-color);
+  height: 160px;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
-
 
 .footer-block {
   display: grid;
@@ -15,6 +14,7 @@ footer{
   height: auto;
   width: 100%;
   margin: 0 auto;
+  padding: 0px 100px;
 }
 
 .footer-block > div:first-child {
@@ -33,16 +33,16 @@ footer{
   gap: 10px;
 }
 
-.copyright{
-    color: var(--background-color);
-    font-family: var(--font-secondary);
-    font-size: clamp(0.8rem, 2vw, 1.2rem);
-    text-decoration: none;
-    transition: all 0.3s ease;
+.copyright {
+  color: var(--background-color);
+  font-family: var(--font-secondary);
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.legal-copyright{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.legal-copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

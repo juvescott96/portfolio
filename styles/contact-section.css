@@ -2,9 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 60px;
+  padding: 60px 100px;
   width: 100%;
   gap: 60px;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .contact-section p {
@@ -83,7 +86,7 @@
 
 .contact-form {
   width: 100%;
-  max-width: 900px;
+  max-width: 775px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -186,7 +189,7 @@
   gap: 8px;
   color: white;
   font-family: var(--font-secondary);
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
 }
 
@@ -203,6 +206,7 @@
 .privacy-row a {
   color: var(--primary-color);
   text-decoration: none;
+  font-size: 14px;
 }
 
 .privacy-error {
@@ -243,6 +247,15 @@ input:-webkit-autofill,
 textarea:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #262e34 inset;
   -webkit-text-fill-color: white;
+}
+
+.arrow-up {
+  position: absolute;
+  right: 100px;
+}
+
+.arrow-up svg {
+  transform: rotate(180deg);
 }
 
 @media (max-width: 700px) {
