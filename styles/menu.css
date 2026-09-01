@@ -20,6 +20,34 @@ menu {
   gap: 20px;
 }
 
+.language-switcher a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  color: var(--background-color);
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.language-switcher a.active {
+  color: var(--secondary-color);
+  background-image: url("../assets/icons/language-ellipse.png");
+}
+
+.language-switcher:has(a:not(.active):hover) a.active,
+.language-switcher:has(a:not(.active):focus-visible) a.active {
+  color: var(--background-color);
+  background-image: none;
+}
+
+.language-switcher a:not(.active):hover,
+.language-switcher a:not(.active):focus-visible {
+  color: var(--secondary-color);
+}
+
 .menu-content {
   max-width: 1440px;
   width: 100%;
