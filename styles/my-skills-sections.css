@@ -8,19 +8,21 @@
 
 .skills-information {
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 68px;
   width: 100%;
   max-width: 1440px;
+  gap: 8px;
 }
 
 .skill-set {
-  flex: 0 0 50%;
-  max-width: 50%;
+  width: 440px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 16px;
-  row-gap: 60px;
+  row-gap: 40px;
   justify-items: center;
   align-items: start;
 }
@@ -48,12 +50,9 @@
 }
 
 .currently-learning {
-  flex: 0 0 50%;
-  max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 48px;
 }
 
 .learning-circle {
