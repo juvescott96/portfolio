@@ -9,42 +9,51 @@
 .skills-information {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 20px;
   margin-top: 40px;
   width: 100%;
   max-width: 1440px;
+}
+
+.skill-set {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  column-gap: 16px;
+  row-gap: 60px;
+  justify-items: center;
+  align-items: start;
 }
 
 .icons-skill {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 14px;
+  width: 100%;
 }
 
 .icons-skill img {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
 
 .icons-skill p {
-  font-size: 10px;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
   font-family: var(--font-secondary);
   color: var(--primary-color);
 }
 
-.skill-set {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 400px;
-}
-
 .currently-learning {
+  flex: 0 0 50%;
+  max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 48px;
 }
 
 .learning-circle {
