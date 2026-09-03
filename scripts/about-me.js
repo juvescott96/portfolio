@@ -1,19 +1,31 @@
-const items = [
+const itemMeta = [
     {
         icon: "./assets/icons/location.png",
-        alt: "Location icon",
-        primaryText: "I am",
-        secondaryText: " located in Hanau",
+        altKey: "about.alt0",
+        primaryKey: "about.primary0",
+        secondaryKey: "about.secondary0",
         dots: "..."
     },
     {
         icon: "./assets/icons/remote.png",
-        alt: "Remote work icon",
-        primaryText: "I am",
-        secondaryText: " open to remote work",
+        altKey: "about.alt1",
+        primaryKey: "about.primary1",
+        secondaryKey: "about.secondary1",
         dots: "..."
     }
 ];
+
+function buildItems() {
+    return itemMeta.map((meta) => ({
+        icon: meta.icon,
+        alt: window.i18n.t(meta.altKey),
+        primaryText: window.i18n.t(meta.primaryKey),
+        secondaryText: window.i18n.t(meta.secondaryKey),
+        dots: meta.dots
+    }));
+}
+
+let items = buildItems();
 
 const typedPrimaryText = document.getElementById("typedPrimaryText");
 const typedSecondaryText = document.getElementById("typedSecondaryText");
@@ -54,6 +66,13 @@ function typeEffect() {
 }
 
 typeEffect();
+
+// Rebuild the typed sentences in the newly selected language and restart the animation.
+document.addEventListener("languagechange", () => {
+    items = buildItems();
+    letterIndex = 0;
+    isDeleting = false;
+});
 
 function loopTypingEffect(fullText) {
     if (!isDeleting) {

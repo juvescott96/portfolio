@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
@@ -50,7 +50,7 @@
                         <p class="p-developer font-josefin color-primary">developer</p>
                     </div>
                     <h1>Dustin Condello</h1>
-                    <p class="font-josefin frontend-developer">FRONTEND DEVELOPER</p>
+                    <p class="font-josefin frontend-developer" data-i18n="hero.role">FRONTEND DEVELOPER</p>
                     <div class="social-media ">
                         <button class="btn-sm social-btn">
                             <img class="icon-normal" src="./assets/icons/email.svg" alt="Email">
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="arrow-down">
-                    <a href="#contact" class="arrow" aria-label="Scroll to contact">
+                    <a href="#contact" class="arrow" aria-label="Scroll to contact" data-i18n-aria-label="a11y.toContact">
                         <svg width="38" height="89" viewBox="0 0 38 89" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M20.4142 65.0634L27.3265 58.7604C27.7082 58.4123 28.2923 58.4123 28.6741 58.7604L29.1897 59.2306C29.6246 59.6272 29.6246 60.3118 29.1897 60.7084L19.6738 69.3856C19.292 69.7337 18.708 69.7337 18.3262 69.3856L8.81034 60.7084C8.3754 60.3118 8.3754 59.6272 8.81034 59.2306L9.32595 58.7604C9.7077 58.4123 10.2918 58.4123 10.6735 58.7604L17.5858 65.0634L17.5858 21C17.5858 20.4477 18.0335 20 18.5858 20H19.4142C19.9665 20 20.4142 20.4477 20.4142 21L20.4142 65.0634Z"
@@ -105,10 +105,10 @@
                 <p class="p-developer font-josefin bg-color">developer</p>
             </div>
             <div class="nav-links">
-                <a href="#why-me">Why me</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="#why-me" data-i18n="nav.whyMe">Why me</a>
+                <a href="#skills" data-i18n="nav.skills">Skills</a>
+                <a href="#projects" data-i18n="nav.projects">Projects</a>
+                <a href="#contact" data-i18n="nav.contact">Contact</a>
             </div>
             <div class="language-switcher">
                 <a href="#" data-lang="de" class="active" aria-current="true">DE</a>
@@ -118,7 +118,7 @@
     </menu>
     <main>
         <section id="why-me" class="why-me-section">
-            <h2 class="primary-color">Why me?</h2>
+            <h2 class="primary-color" data-i18n="whyMe.title">Why me?</h2>
             <div class="why-me-information">
                 <div class="about-typing">
                     <img id="aboutIcon" class="about-icon" src="./assets/icons/location.png" alt="Location Icon">
@@ -132,18 +132,18 @@
                 </div>
                 <div>
                     <div class="text-why-me">
-                        <p>I’m interested in coding because there is always something new to learn. It takes patience,
+                        <p data-i18n="whyMe.text">I’m interested in coding because there is always something new to learn. It takes patience,
                             attention to detail, and sometimes a different way of thinking. I really enjoy that mix of
                             challenge and creativity.</p>
                     </div>
                     <div class="btn-lets-talk">
-                        <button>Let´s talk</button>
+                        <button data-i18n="whyMe.cta">Let´s talk</button>
                     </div>
                 </div>
             </div>
         </section>
         <section id="skills" class="my-skills-section">
-            <h2 class="primary-color">My Skills</h2>
+            <h2 class="primary-color" data-i18n="skills.title">My Skills</h2>
             <div class="skills-information">
                 <div class="skill-set">
                     <div class="icons-skill">
@@ -189,7 +189,7 @@
                 </div>
                 <div class="currently-learning">
                     <div class="learning-circle">
-                        <p>i am currently learning</p>
+                        <p data-i18n="skills.learning">i am currently learning</p>
 
                         <div class="learning">
                             <div class="learning-icon">
@@ -203,7 +203,7 @@
                             </div>
                         </div>
 
-                        <p class="learning-text">
+                        <p class="learning-text" data-i18n="skills.learningText">
                             Show that you are motivated to continually improve. your skills, implement innovative
                             solutions
                             and stay abreast of new technologies.
@@ -213,28 +213,28 @@
             </div>
         </section>
         <section id="projects" class="my-projects-section">
-            <h2 class="primary-color">My Projects</h2>
+            <h2 class="primary-color" data-i18n="projects.title">My Projects</h2>
             <div class="project-details">
                 <div class="tabs-projects">
                     <div class="project-tabs">
-                        <button onclick="showProjects(0)" class="project-tab active-tab">1. Join</button>
-                        <button onclick="showProjects(1)" class="project-tab">2. El Pollo Loco</button>
-                        <button onclick="showProjects(2)" class="project-tab">3. Ongoing Project</button>
+                        <button onclick="showProjects(0)" class="project-tab active-tab" data-i18n="projects.tab1">1. Join</button>
+                        <button onclick="showProjects(1)" class="project-tab" data-i18n="projects.tab2">2. El Pollo Loco</button>
+                        <button onclick="showProjects(2)" class="project-tab" data-i18n="projects.tab3">3. Ongoing Project</button>
                     </div>
                 </div>
                 <div id="projectContent" class="about-projects"></div>
             </div>
         </section>
         <section class="references-section">
-            <h3 class="primary-color">Need a teamplayer? Here´s what my collegues say about me</h3>
+            <h3 class="primary-color" data-i18n="references.title">Need a teamplayer? Here´s what my collegues say about me</h3>
             <div class="references-shape">
                 <div class="references-circle">
                     <div>
                         <h4>Max Mustermann</h4>
-                        <p>Project <span class="primary-color">Join</span></p>
+                        <p data-i18n-html="references.role">Project <span class="primary-color">Join</span></p>
                     </div>
 
-                    <p class="learning-text">
+                    <p class="learning-text" data-i18n="references.quote">
                         "Dustin is a highly skilled and dedicated frontend developer. He consistently delivers
                         high-quality work and is always willing to go the extra mile to ensure the success of the
                         project. His attention to detail and problem-solving abilities make him an invaluable member of
@@ -244,7 +244,7 @@
             </div>
         </section>
         <section id="contact" class="contact-section">
-            <h2 class="primary-color">Contact me</h2>
+            <h2 class="primary-color" data-i18n="contact.title">Contact me</h2>
             <div class="contact-text-mail-phone">
                 <div class="contact-text">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos corporis sed dolorum facilis dicta
@@ -268,20 +268,20 @@
             <form class="contact-form" id="contactform" novalidate>
                 <div class="contact-row">
                     <label class="contact-field">
-                        <span class="field-label" id="nameLabel">Your Name</span>
+                        <span class="field-label" id="nameLabel" data-i18n="form.name">Your Name</span>
                         <input id="name" name="name" type="text" autocomplete="name">
                         <img src="./assets/icons/done.png" alt="Done" class="field-check" id="nameCheck">
                     </label>
 
                     <label class="contact-field">
-                        <span class="field-label" id="emailLabel">Your Email</span>
+                        <span class="field-label" id="emailLabel" data-i18n="form.email">Your Email</span>
                         <input id="email" name="email" type="email" autocomplete="email">
                         <img src="./assets/icons/done.png" alt="Done" class="field-check" id="emailCheck">
                     </label>
                 </div>
 
                 <label class="contact-field">
-                    <span class="field-label" id="messageLabel">Your Message</span>
+                    <span class="field-label" id="messageLabel" data-i18n="form.message">Your Message</span>
                     <textarea name="message" id="message"></textarea>
                     <img src="./assets/icons/done.png" alt="Done" class="field-check field-check-textarea"
                         id="messageCheck">
@@ -290,7 +290,7 @@
                 <label class="privacy-row" id="privacyLabel">
                     <input id="privacy" name="privacy" type="checkbox" />
                     <img id="privacyIcon" class="privacy-icon" src="./assets/icons/checkbox-default.png" alt="">
-                    <span>
+                    <span data-i18n-html="form.privacy">
                         I've read the
                         <a href="./privacy-policy.html">privacy policy</a>
                         and agree to the processing of my data as outlined.
@@ -300,11 +300,11 @@
 
                 <div class="form-footer">
                     <p id="formFeedback"></p>
-                    <button id="sendButton" type="submit" disabled>Send</button>
+                    <button id="sendButton" type="submit" data-i18n="form.send" disabled>Send</button>
                 </div>
             </form>
             <div class="arrow-up">
-                <a href="#top" class="arrow" aria-label="Back to top">
+                <a href="#top" class="arrow" aria-label="Back to top" data-i18n-aria-label="a11y.toTop">
                     <svg width="38" height="89" viewBox="0 0 38 89" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M20.4142 65.0634L27.3265 58.7604C27.7082 58.4123 28.2923 58.4123 28.6741 58.7604L29.1897 59.2306C29.6246 59.6272 29.6246 60.3118 29.1897 60.7084L19.6738 69.3856C19.292 69.7337 18.708 69.7337 18.3262 69.3856L8.81034 60.7084C8.3754 60.3118 8.3754 59.6272 8.81034 59.2306L9.32595 58.7604C9.7077 58.4123 10.2918 58.4123 10.6735 58.7604L17.5858 65.0634L17.5858 21C17.5858 20.4477 18.0335 20 18.5858 20H19.4142C19.9665 20 20.4142 20.4477 20.4142 21L20.4142 65.0634Z"
@@ -319,7 +319,7 @@
     <footer>
         <div class="footer-block">
             <div class="legal-copyright">
-                <a href="./legal-notice.html">Legal notice</a>
+                <a href="./legal-notice.html" data-i18n="footer.legal">Legal notice</a>
                 <p class="bg-color copyright">© Dustin Condello 2026</p>
             </div>
             <div class="logo">
@@ -363,10 +363,10 @@
     </footer>
 
 
+    <script src="./scripts/language-switcher.js"></script>
     <script src="./scripts/about-me.js"></script>
     <script src="./scripts/my-projects.js"></script>
     <script src="./scripts/contact-form.js"></script>
-    <script src="./scripts/language-switcher.js"></script>
 </body>
 
 </html>

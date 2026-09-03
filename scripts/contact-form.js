@@ -1,4 +1,4 @@
-const form = document.getElementById("contactForm");
+const form = document.getElementById("contactform");
 const sendButton = document.getElementById("sendButton");
 const feedback = document.getElementById("formFeedback");
 
@@ -22,11 +22,10 @@ const labels = {
     message: document.getElementById("messageLabel"),
 };
 
-const defaultLabels = {
-    name: "Your Name",
-    email: "Your Email",
-    message: "Your Message",
-};
+// Current label text in the active language (key mirrors window.i18n keys).
+function defaultLabel(key) {
+    return window.i18n.t(`form.${key}`);
+}
 
 const checks = {
     name: document.getElementById("nameCheck"),
@@ -49,14 +48,15 @@ function getErrors() {
     const name = fields.name.value.trim();
     const email = fields.email.value.trim();
     const message = fields.message.value.trim();
+    const t = window.i18n.t;
 
     return {
-        name: name ? "" : "Your name is required",
+        name: name ? "" : t("form.errName"),
         email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
             ? ""
-            : "Your Email is required",
-        message: message ? "" : "Your message is required",
-        privacy: fields.privacy.checked ? "" : "Please accept the privacy policy.",
+            : t("form.errEmail"),
+        message: message ? "" : t("form.errMessage"),
+        privacy: fields.privacy.checked ? "" : t("form.errPrivacy"),
     };
 }
 
@@ -79,7 +79,7 @@ function validateForm(showOnlyTouched = true) {
         const hasError = Boolean(shouldShow && errors[key]);
         const isValid = Boolean(shouldShow && !errors[key]);
 
-        labels[key].textContent = hasError ? errors[key] : defaultLabels[key];
+        labels[key].textContent = hasError ? errors[key] : defaultLabel(key);
         labels[key].classList.toggle("error", hasError);
 
         fields[key].classList.toggle("invalid", hasError);
@@ -126,6 +126,9 @@ privacyLabel.addEventListener("mouseleave", () => {
     updatePrivacyIcon(Boolean(privacyError.textContent));
 });
 
+// Refresh visible labels / error messages when the language changes.
+document.addEventListener("languagechange", () => validateForm());
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -136,10 +139,10 @@ form.addEventListener("submit", (event) => {
     if (!validateForm(false)) return;
 
     sendButton.disabled = true;
-    feedback.textContent = "Sending...";
+    feedback.textContent = window.i18n.t("form.sending");
 
     setTimeout(() => {
-        feedback.textContent = "Your message was sent successfully.";
+        feedback.textContent = window.i18n.t("form.success");
         form.reset();
 
         Object.keys(touched).forEach((key) => {

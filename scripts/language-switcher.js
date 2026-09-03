@@ -1,8 +1,320 @@
+// Central i18n module: translation dictionary + language switching for every page.
+// Default language is German ("de"); the choice is remembered in localStorage.
+// Other page scripts read the current language via window.i18n.t(key) and listen
+// for the "languagechange" event on document to re-render their dynamic content.
+
+const translations = {
+  de: {
+    // Navigation + footer (all pages)
+    "nav.whyMe": `Warum ich`,
+    "nav.skills": `Skills`,
+    "nav.projects": `Projekte`,
+    "nav.contact": `Kontakt`,
+    "footer.legal": `Impressum`,
+
+    // Hero
+    "hero.role": `FRONTEND-ENTWICKLER`,
+    "a11y.toContact": `Zum Kontakt scrollen`,
+    "a11y.toTop": `Nach oben`,
+
+    // Why me
+    "whyMe.title": `Warum ich?`,
+    "whyMe.text": `Programmieren interessiert mich, weil es immer etwas Neues zu lernen gibt. Es braucht Geduld, Sorgfalt im Detail und manchmal eine andere Denkweise. Diese Mischung aus Herausforderung und Kreativität macht mir richtig Spaß.`,
+    "whyMe.cta": `Lass uns reden`,
+    "about.primary0": `Ich`,
+    "about.secondary0": ` wohne in Hanau`,
+    "about.alt0": `Standort-Symbol`,
+    "about.primary1": `Ich bin`,
+    "about.secondary1": ` offen für Remote-Arbeit`,
+    "about.alt1": `Symbol für Remote-Arbeit`,
+
+    // Skills
+    "skills.title": `Meine Skills`,
+    "skills.learning": `Ich lerne gerade`,
+    "skills.learningText": `Zeig, dass du motiviert bist, deine Fähigkeiten stetig zu verbessern, innovative Lösungen umzusetzen und bei neuen Technologien am Ball zu bleiben.`,
+
+    // Projects
+    "projects.title": `Meine Projekte`,
+    "projects.tab1": `1. Join`,
+    "projects.tab2": `2. El Pollo Loco`,
+    "projects.tab3": `3. Laufendes Projekt`,
+    "projects.aboutTitle": `Über das Projekt`,
+    "projects.durationLabel": `Dauer:`,
+    "projects.processTitle": `Wie ich meinen Arbeitsprozess organisiert habe`,
+    "projects.teamTitle": `Meine Erfahrung in der Gruppenarbeit`,
+    "projects.technologies": `Technologien`,
+    "projects.comingSoon": `Demnächst..`,
+    "projects.liveTest": `Live-Test`,
+    "projects.github": `GitHub`,
+    "projects.org": `Akademie`,
+    "projects.dur0": `2 Monate`,
+    "projects.dur1": `5 Wochen`,
+    "projects.dur2": `laufend`,
+    "projects.desc0": `Aufgabenverwaltung nach dem Vorbild des Kanban-Systems. Aufgaben per Drag-and-drop erstellen und organisieren, Nutzer:innen und Kategorien zuweisen.`,
+    "projects.desc1": `Ein einfaches Jump-and-Run-Spiel auf Basis eines objektorientierten Ansatzes. Hilf der Spielfigur, Münzen und Flaschen zu sammeln, um gegen den Gegner zu bestehen.`,
+    "projects.desc2": `Ein neues Projekt entsteht gerade. Details folgen in Kürze.`,
+    "projects.team0": `ja ja ve ve`,
+    "projects.team1": `juhuuu`,
+    "projects.team2": `Demnächst`,
+
+    // References
+    "references.title": `Du brauchst eine:n Teamplayer:in? Das sagen meine Kolleg:innen über mich`,
+    "references.role": `Projekt <span class="primary-color">Join</span>`,
+    "references.quote": `"Dustin ist ein sehr kompetenter und engagierter Frontend-Entwickler. Er liefert durchgehend qualitativ hochwertige Arbeit und geht immer die Extrameile, um den Erfolg des Projekts sicherzustellen. Seine Sorgfalt im Detail und sein Talent zum Lösen von Problemen machen ihn zu einem unverzichtbaren Mitglied in jedem Team."`,
+
+    // Contact + form
+    "contact.title": `Kontakt`,
+    "form.name": `Dein Name`,
+    "form.email": `Deine E-Mail`,
+    "form.message": `Deine Nachricht`,
+    "form.privacy": `Ich habe die <a href="./privacy-policy.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.`,
+    "form.send": `Senden`,
+    "form.sending": `Wird gesendet...`,
+    "form.success": `Deine Nachricht wurde erfolgreich gesendet.`,
+    "form.errName": `Bitte gib deinen Namen ein.`,
+    "form.errEmail": `Bitte gib eine gültige E-Mail-Adresse ein.`,
+    "form.errMessage": `Bitte gib eine Nachricht ein.`,
+    "form.errPrivacy": `Bitte akzeptiere die Datenschutzerklärung.`,
+
+    // Legal notice page
+    "legal.title": `Impressum – Dustin Condello`,
+    "legal.heading": `Impressum`,
+    "legal.imprintTitle": `Impressum`,
+    "legal.imprint1": `[Liste der Studierenden]`,
+    "legal.imprint2": `[Adresse des Betreibers – z. B. eine:r der Studierenden]`,
+    "legal.imprint3": `[PLZ und Ort]`,
+    "legal.contactTitle": `Kontakt`,
+    "legal.acceptTitle": `Annahme der Bedingungen`,
+    "legal.acceptText": `Mit dem Zugriff auf <span class="text-primary">Portfolio</span> (das Produkt) und dessen Nutzung erkennst du die folgenden Bedingungen sowie alle Richtlinien, Leitlinien oder deren Änderungen an, die dir von Zeit zu Zeit zur Verfügung gestellt werden. Wir, die genannten Studierenden, können die Bedingungen von Zeit zu Zeit ohne Vorankündigung aktualisieren oder ändern.`,
+    "legal.scopeTitle": `Geltungsbereich und Eigentum am Produkt`,
+    "legal.scopeText1": `<span class="text-primary">Portfolio</span> wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp der <span class="text-primary">Developer Akademie GmbH</span> entwickelt. Es dient Lernzwecken und ist nicht für eine umfangreiche private oder geschäftliche Nutzung bestimmt. Daher können wir keine dauerhafte Verfügbarkeit, Zuverlässigkeit, Richtigkeit oder sonstige Qualität dieses Produkts garantieren.`,
+    "legal.scopeText2": `Das Design von <span class="text-primary">Portfolio</span> ist Eigentum der <span class="text-primary">Developer Akademie GmbH</span>. Die unbefugte Nutzung, Vervielfältigung, Bearbeitung, Verbreitung oder Nachbildung des Designs ist strengstens untersagt.`,
+    "legal.propTitle": `Schutzrechte`,
+    "legal.propText": `Abgesehen von dem Design, das der <span class="text-primary">Developer Akademie GmbH</span> gehört, behalten wir, die genannten Studierenden, sämtliche Schutzrechte an <span class="text-primary">Portfolio</span>, einschließlich aller damit verbundenen urheberrechtlich geschützten Materialien, Marken und sonstiger geschützter Informationen.`,
+    "legal.useTitle": `Nutzung des Produkts`,
+    "legal.useText": `<span class="text-primary">Portfolio</span> darf ausschließlich für rechtmäßige Zwecke und im Einklang mit allen geltenden Gesetzen und Vorschriften genutzt werden. Jede Nutzung von <span class="text-primary">Portfolio</span> für illegale Aktivitäten oder um eine andere Person zu belästigen, zu schädigen, zu bedrohen oder einzuschüchtern, ist strengstens untersagt. Für deine Interaktionen mit anderen Nutzer:innen von <span class="text-primary">Portfolio</span> bist du allein verantwortlich.`,
+    "legal.disclaimerTitle": `Haftungsausschluss und Haftungsbeschränkung`,
+    "legal.disclaimerText": `<span class="text-primary">Portfolio</span> wird „wie besehen" und ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt, einschließlich, aber nicht beschränkt auf die stillschweigende Gewährleistung der Marktgängigkeit, der Eignung für einen bestimmten Zweck und der Nichtverletzung von Rechten Dritter. In keinem Fall haften wir, die genannten Studierenden, oder die Developer Akademie für direkte, indirekte, zufällige, besondere, Folge- oder exemplarische Schäden, einschließlich, aber nicht beschränkt auf Schäden durch entgangenen Gewinn, Verlust von Geschäftswert, Nutzung, Daten oder andere immaterielle Verluste, selbst wenn wir auf die Möglichkeit solcher Schäden hingewiesen wurden, die sich aus der Nutzung oder Leistung von <span class="text-primary">Portfolio</span> ergeben oder damit zusammenhängen.`,
+    "legal.indemnityTitle": `Freistellung`,
+    "legal.indemnityText": `Du erklärst dich damit einverstanden, uns, die genannten Studierenden, die Developer Akademie sowie unsere verbundenen Unternehmen, Partner, Führungskräfte, Geschäftsführer, Vertreter und Mitarbeitenden von allen Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Haftungen (einschließlich angemessener Anwaltskosten) freizustellen, zu verteidigen und schadlos zu halten, die sich aus deiner Nutzung von <span class="text-primary">Portfolio</span> und/oder deinem Verstoß gegen dieses Impressum ergeben oder damit zusammenhängen.`,
+    "legal.metaContact": `Bei Fragen oder Mitteilungen kontaktiere uns bitte unter dustincondello@googlemail.com.`,
+    "legal.metaDate": `Stand: 2. September 2026`,
+
+    // Privacy policy page
+    "privacy.title": `Datenschutzerklärung – Dustin Condello`,
+    "privacy.heading": `Datenschutzerklärung`,
+    "privacy.overviewTitle": `1. Datenschutz auf einen Blick`,
+    "privacy.overviewText1": `Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit deinen personenbezogenen Daten passiert, wenn du diese Website besuchst. Personenbezogene Daten sind alle Daten, mit denen du persönlich identifiziert werden kannst.`,
+    "privacy.overviewText2": `<span class="text-primary">Portfolio</span> wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp der <span class="text-primary">Developer Akademie GmbH</span> entwickelt. Es dient Lernzwecken und ist nicht für eine umfangreiche private oder geschäftliche Nutzung bestimmt.`,
+    "privacy.responsibleTitle": `Verantwortliche Stelle`,
+    "privacy.responsibleText1": `Verantwortlich für die Datenverarbeitung auf dieser Website ist:`,
+    "privacy.responsibleText2": `Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.`,
+    "privacy.hostingTitle": `2. Hosting`,
+    "privacy.hostingText1": `Diese Website wird bei einem externen Dienstleister (Hoster) gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich unter anderem um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten handeln, die über eine Website generiert werden.`,
+    "privacy.hostingText2": `Der Einsatz des Hosters erfolgt zum Zweck der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Nutzer:innen (Art. 6 Abs. 1 lit. b DSGVO) sowie im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Onlineangebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).`,
+    "privacy.generalTitle": `3. Allgemeine Hinweise und Pflichtinformationen`,
+    "privacy.generalText1": `Die Betreiber dieser Website nehmen den Schutz deiner personenbezogenen Daten sehr ernst. Wir behandeln deine personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.`,
+    "privacy.generalText2": `Wenn du diese Website nutzt, werden verschiedene personenbezogene Daten erhoben. Diese Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.`,
+    "privacy.generalText3": `Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.`,
+    "privacy.sslTitle": `SSL- bzw. TLS-Verschlüsselung`,
+    "privacy.sslText1": `Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Anfragen, die du an uns als Seitenbetreiber sendest, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in deiner Browserzeile.`,
+    "privacy.sslText2": `Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die du an uns übermittelst, nicht von Dritten mitgelesen werden.`,
+    "privacy.collectionTitle": `4. Datenerfassung auf dieser Website`,
+    "privacy.logTitle": `Server-Log-Dateien`,
+    "privacy.logText1": `Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die dein Browser automatisch an uns übermittelt. Dies sind:`,
+    "privacy.log1": `Browsertyp und Browserversion`,
+    "privacy.log2": `verwendetes Betriebssystem`,
+    "privacy.log3": `Referrer URL`,
+    "privacy.log4": `Hostname des zugreifenden Rechners`,
+    "privacy.log5": `Uhrzeit der Serveranfrage`,
+    "privacy.log6": `IP-Adresse`,
+    "privacy.logText2": `Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Dateien erfasst werden.`,
+    "privacy.contactFormTitle": `Kontaktformular`,
+    "privacy.contactFormText1": `Wenn du uns per Kontaktformular Anfragen zukommen lässt, werden deine Angaben aus dem Anfrageformular inklusive der von dir dort angegebenen Kontaktdaten (etwa Name, E-Mail-Adresse und deine Nachricht) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne deine Einwilligung weiter.`,
+    "privacy.contactFormText2": `Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern deine Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), sofern diese abgefragt wurde.`,
+    "privacy.contactFormText3": `Die von dir im Kontaktformular eingegebenen Daten verbleiben bei uns, bis du uns zur Löschung aufforderst, deine Einwilligung zur Speicherung widerrufst oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung deiner Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.`,
+    "privacy.rightsTitle": `5. Deine Rechte`,
+    "privacy.rightsText1": `Im Rahmen der geltenden gesetzlichen Bestimmungen hast du jederzeit das Recht auf unentgeltliche Auskunft über deine gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie gegebenenfalls ein Recht auf Berichtigung oder Löschung dieser Daten.`,
+    "privacy.rightsText2": `Du hast das Recht, dich bei der zuständigen Aufsichtsbehörde zu beschweren, wenn du der Ansicht bist, dass die Verarbeitung deiner personenbezogenen Daten gegen das Datenschutzrecht verstößt. Zu diesem und weiteren Fragen zum Thema personenbezogene Daten kannst du dich jederzeit an uns wenden.`,
+    "privacy.metaContact": `Bei Fragen oder Anliegen zu deinen personenbezogenen Daten kontaktiere uns bitte unter dustincondello@googlemail.com.`,
+    "privacy.metaDate": `Stand: 2. September 2026`,
+  },
+
+  en: {
+    // Navigation + footer (all pages)
+    "nav.whyMe": `Why me`,
+    "nav.skills": `Skills`,
+    "nav.projects": `Projects`,
+    "nav.contact": `Contact`,
+    "footer.legal": `Legal notice`,
+
+    // Hero
+    "hero.role": `FRONTEND DEVELOPER`,
+    "a11y.toContact": `Scroll to contact`,
+    "a11y.toTop": `Back to top`,
+
+    // Why me
+    "whyMe.title": `Why me?`,
+    "whyMe.text": `I'm interested in coding because there is always something new to learn. It takes patience, attention to detail, and sometimes a different way of thinking. I really enjoy that mix of challenge and creativity.`,
+    "whyMe.cta": `Let´s talk`,
+    "about.primary0": `I am`,
+    "about.secondary0": ` located in Hanau`,
+    "about.alt0": `Location icon`,
+    "about.primary1": `I am`,
+    "about.secondary1": ` open to remote work`,
+    "about.alt1": `Remote work icon`,
+
+    // Skills
+    "skills.title": `My Skills`,
+    "skills.learning": `i am currently learning`,
+    "skills.learningText": `Show that you are motivated to continually improve. your skills, implement innovative solutions and stay abreast of new technologies.`,
+
+    // Projects
+    "projects.title": `My Projects`,
+    "projects.tab1": `1. Join`,
+    "projects.tab2": `2. El Pollo Loco`,
+    "projects.tab3": `3. Ongoing Project`,
+    "projects.aboutTitle": `About the project`,
+    "projects.durationLabel": `Duration:`,
+    "projects.processTitle": `How I have organised my work process`,
+    "projects.teamTitle": `My group work experience`,
+    "projects.technologies": `Technologies`,
+    "projects.comingSoon": `Coming soon..`,
+    "projects.liveTest": `Live Test`,
+    "projects.github": `GitHub`,
+    "projects.org": `Akademie`,
+    "projects.dur0": `2 months`,
+    "projects.dur1": `5 weeks`,
+    "projects.dur2": `ongoing`,
+    "projects.desc0": `Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign useres and categories.`,
+    "projects.desc1": `A simple Jump-and-Run game based on an object-oriented approach. Help the character to find coins and bottles to fight the enemy.`,
+    "projects.desc2": `A new project is currently in the making. Details will follow soon.`,
+    "projects.team0": `ja ja ve ve`,
+    "projects.team1": `juhuuu`,
+    "projects.team2": `coming soon`,
+
+    // References
+    "references.title": `Need a teamplayer? Here´s what my collegues say about me`,
+    "references.role": `Project <span class="primary-color">Join</span>`,
+    "references.quote": `"Dustin is a highly skilled and dedicated frontend developer. He consistently delivers high-quality work and is always willing to go the extra mile to ensure the success of the project. His attention to detail and problem-solving abilities make him an invaluable member of any team."`,
+
+    // Contact + form
+    "contact.title": `Contact me`,
+    "form.name": `Your Name`,
+    "form.email": `Your Email`,
+    "form.message": `Your Message`,
+    "form.privacy": `I've read the <a href="./privacy-policy.html">privacy policy</a> and agree to the processing of my data as outlined.`,
+    "form.send": `Send`,
+    "form.sending": `Sending...`,
+    "form.success": `Your message was sent successfully.`,
+    "form.errName": `Your name is required`,
+    "form.errEmail": `Your Email is required`,
+    "form.errMessage": `Your message is required`,
+    "form.errPrivacy": `Please accept the privacy policy.`,
+
+    // Legal notice page
+    "legal.title": `Legal Notice – Dustin Condello`,
+    "legal.heading": `Legal Notice`,
+    "legal.imprintTitle": `Imprint`,
+    "legal.imprint1": `[Student Names List]`,
+    "legal.imprint2": `[Address of the JOIN operator - e.g. one of the students]`,
+    "legal.imprint3": `[Postcode and city]`,
+    "legal.contactTitle": `Exploring the Board`,
+    "legal.acceptTitle": `Acceptance of terms`,
+    "legal.acceptText": `By accessing and using <span class="text-primary">Portfolio</span> (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.`,
+    "legal.scopeTitle": `Scope and ownership of the product`,
+    "legal.scopeText1": `<span class="text-primary">Portfolio</span> has been developed as part of a student group project in a web development bootcamp at the <span class="text-primary">Developer Akademie GmbH</span>. It has an educational purpose and is not intended for extensive personal & business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product.`,
+    "legal.scopeText2": `The design of <span class="text-primary">Portfolio</span> is owned by the <span class="text-primary">Developer Akademie GmbH</span>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.`,
+    "legal.propTitle": `Proprietary rights`,
+    "legal.propText": `Aside from the design owned by <span class="text-primary">Developer Akademie GmbH</span>, we, the listed students, retain all proprietary rights in <span class="text-primary">Portfolio</span>, including any associated copyrighted material, trademarks, and other proprietary information.`,
+    "legal.useTitle": `Use of the product`,
+    "legal.useText": `<span class="text-primary">Portfolio</span> is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of <span class="text-primary">Portfolio</span> for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions with other users of <span class="text-primary">Portfolio</span>.`,
+    "legal.disclaimerTitle": `Disclaimer of warranties and limitation of liability`,
+    "legal.disclaimerText": `<span class="text-primary">Portfolio</span> is provided "as is" without warranty of any kind, whether expressed or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the Developer Akademie, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or performance of <span class="text-primary">Portfolio</span>.`,
+    "legal.indemnityTitle": `Indemnity`,
+    "legal.indemnityText": `You agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of <span class="text-primary">Portfolio</span> and/or your breach of this Legal Notice.`,
+    "legal.metaContact": `For any questions or notices, please contact us at dustincondello@googlemail.com.`,
+    "legal.metaDate": `Date: September 2, 2026`,
+
+    // Privacy policy page
+    "privacy.title": `Privacy Policy – Dustin Condello`,
+    "privacy.heading": `Privacy Policy`,
+    "privacy.overviewTitle": `1. An overview of data protection`,
+    "privacy.overviewText1": `The following information provides a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to personally identify you.`,
+    "privacy.overviewText2": `<span class="text-primary">Portfolio</span> has been developed as part of a student group project in a web development bootcamp at the <span class="text-primary">Developer Akademie GmbH</span>. It has an educational purpose and is not intended for extensive personal & business usage.`,
+    "privacy.responsibleTitle": `Responsible party`,
+    "privacy.responsibleText1": `The party responsible for processing data on this website is:`,
+    "privacy.responsibleText2": `The responsible party is the natural or legal person who alone or jointly with others decides on the purposes and means of processing personal data (e.g. names, email addresses, etc.).`,
+    "privacy.hostingTitle": `2. Hosting`,
+    "privacy.hostingText1": `This website is hosted by an external service provider (hoster). The personal data collected on this website is stored on the servers of the hoster. This may include IP addresses, contact requests, meta and communication data, contract data, contact details, names, website accesses, and other data generated through a website.`,
+    "privacy.hostingText2": `The hoster is used for the purpose of fulfilling the contract with our potential and existing users (Art. 6 para. 1 lit. b GDPR) and in the interest of a secure, fast, and efficient provision of our online offer by a professional provider (Art. 6 para. 1 lit. f GDPR).`,
+    "privacy.generalTitle": `3. General information and mandatory information`,
+    "privacy.generalText1": `The operator of this website takes the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy.`,
+    "privacy.generalText2": `When you use this website, various personal data is collected. This privacy policy explains what data we collect and what we use it for. It also explains how and for what purpose this is done.`,
+    "privacy.generalText3": `We would like to point out that data transmission over the internet (e.g. communication by email) can have security gaps. Complete protection of data against access by third parties is not possible.`,
+    "privacy.sslTitle": `SSL / TLS encryption`,
+    "privacy.sslText1": `For security reasons and to protect the transmission of confidential content, such as requests you send to us as the site operator, this site uses SSL or TLS encryption. You can recognize an encrypted connection by the fact that the address line of the browser changes from "http://" to "https://" and by the lock symbol in your browser line.`,
+    "privacy.sslText2": `If SSL or TLS encryption is activated, the data you transmit to us cannot be read by third parties.`,
+    "privacy.collectionTitle": `4. Data collection on this website`,
+    "privacy.logTitle": `Server log files`,
+    "privacy.logText1": `The provider of the pages automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are:`,
+    "privacy.log1": `Browser type and browser version`,
+    "privacy.log2": `Operating system used`,
+    "privacy.log3": `Referrer URL`,
+    "privacy.log4": `Host name of the accessing computer`,
+    "privacy.log5": `Time of the server request`,
+    "privacy.log6": `IP address`,
+    "privacy.logText2": `This data is not merged with other data sources. The collection of this data is based on Art. 6 para. 1 lit. f GDPR. The website operator has a legitimate interest in the technically error-free presentation and optimization of the website – for this purpose, the server log files must be recorded.`,
+    "privacy.contactFormTitle": `Contact form`,
+    "privacy.contactFormText1": `If you send us inquiries via the contact form, your details from the inquiry form, including the contact details you provide there (such as your name, email address, and your message), will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not pass on this data without your consent.`,
+    "privacy.contactFormText2": `The processing of this data is based on Art. 6 para. 1 lit. b GDPR if your request is related to the performance of a contract or is necessary to carry out pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective processing of the requests addressed to us (Art. 6 para. 1 lit. f GDPR) or on your consent (Art. 6 para. 1 lit. a GDPR) if this has been requested.`,
+    "privacy.contactFormText3": `The data you enter in the contact form will remain with us until you ask us to delete it, revoke your consent to store it, or the purpose for storing the data no longer applies (e.g. after your request has been processed). Mandatory statutory provisions – in particular retention periods – remain unaffected.`,
+    "privacy.rightsTitle": `5. Your rights`,
+    "privacy.rightsText1": `Within the framework of the applicable legal provisions, you have the right at any time to free information about your stored personal data, its origin and recipients, and the purpose of the data processing, and, if applicable, a right to correction or deletion of this data.`,
+    "privacy.rightsText2": `You have the right to lodge a complaint with the competent supervisory authority if you believe that the processing of your personal data violates data protection law. You can contact us at any time regarding this and other questions on the subject of personal data.`,
+    "privacy.metaContact": `For any questions or requests regarding your personal data, please contact us at dustincondello@googlemail.com.`,
+    "privacy.metaDate": `Date: September 2, 2026`,
+  },
+};
+
+const STORAGE_KEY = "portfolioLang";
+const DEFAULT_LANG = "de";
+
 const languageLinks = document.querySelectorAll(".language-switcher a");
 
-function setActiveLanguage(selectedLink) {
+let currentLang = readStoredLanguage();
+
+function readStoredLanguage() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return translations[stored] ? stored : DEFAULT_LANG;
+  } catch (error) {
+    return DEFAULT_LANG;
+  }
+}
+
+function translate(key) {
+  const dictionary = translations[currentLang] || translations[DEFAULT_LANG];
+  return dictionary[key] ?? translations[DEFAULT_LANG][key] ?? key;
+}
+
+function applyTranslations() {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.textContent = translate(element.dataset.i18n);
+  });
+
+  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    element.innerHTML = translate(element.dataset.i18nHtml);
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    element.setAttribute("aria-label", translate(element.dataset.i18nAriaLabel));
+  });
+}
+
+function updateSwitcherState() {
   languageLinks.forEach((languageLink) => {
-    const isActive = languageLink === selectedLink;
+    const isActive = languageLink.dataset.lang === currentLang;
     languageLink.classList.toggle("active", isActive);
 
     if (isActive) {
@@ -13,9 +325,37 @@ function setActiveLanguage(selectedLink) {
   });
 }
 
+function setLanguage(language) {
+  currentLang = translations[language] ? language : DEFAULT_LANG;
+
+  try {
+    localStorage.setItem(STORAGE_KEY, currentLang);
+  } catch (error) {
+    // Ignore storage errors (e.g. private browsing mode).
+  }
+
+  document.documentElement.lang = currentLang;
+  updateSwitcherState();
+  applyTranslations();
+
+  document.dispatchEvent(
+    new CustomEvent("languagechange", { detail: { lang: currentLang } })
+  );
+}
+
 languageLinks.forEach((languageLink) => {
   languageLink.addEventListener("click", (event) => {
     event.preventDefault();
-    setActiveLanguage(languageLink);
+    setLanguage(languageLink.dataset.lang);
   });
 });
+
+// Expose the current language and translator to the other page scripts.
+window.i18n = {
+  t: translate,
+  get lang() {
+    return currentLang;
+  },
+};
+
+setLanguage(currentLang);
