@@ -44,6 +44,15 @@ const touched = {
     privacy: false,
 };
 
+// Pending timers for the "sending / sent" feedback message.
+let feedbackTimers = [];
+
+function clearFeedback() {
+    feedbackTimers.forEach((timer) => clearTimeout(timer));
+    feedbackTimers = [];
+    feedback.textContent = "";
+}
+
 function getErrors() {
     const name = fields.name.value.trim();
     const email = fields.email.value.trim();
@@ -126,8 +135,12 @@ privacyLabel.addEventListener("mouseleave", () => {
     updatePrivacyIcon(Boolean(privacyError.textContent));
 });
 
-// Refresh visible labels / error messages when the language changes.
-document.addEventListener("languagechange", () => validateForm());
+// Refresh visible labels / error messages when the language changes and drop
+// the "sending / sent" message so it does not linger in the old language.
+document.addEventListener("languagechange", () => {
+    clearFeedback();
+    validateForm();
+});
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -139,9 +152,10 @@ form.addEventListener("submit", (event) => {
     if (!validateForm(false)) return;
 
     sendButton.disabled = true;
+    clearFeedback();
     feedback.textContent = window.i18n.t("form.sending");
 
-    setTimeout(() => {
+    feedbackTimers.push(setTimeout(() => {
         feedback.textContent = window.i18n.t("form.success");
         form.reset();
 
@@ -150,5 +164,10 @@ form.addEventListener("submit", (event) => {
         });
 
         validateForm();
-    }, 800);
+
+        // Hide the success message again after 3 seconds.
+        feedbackTimers.push(setTimeout(() => {
+            feedback.textContent = "";
+        }, 3000));
+    }, 800));
 });
