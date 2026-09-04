@@ -129,25 +129,44 @@
 @media (max-width: 768px) {
   header {
     height: auto;
-    min-height: 100vh;
     padding-top: 86px;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
   }
 
   .hero-section {
     flex-direction: column;
     justify-content: flex-start;
-    gap: 40px;
+    gap: 32px;
     margin: 0;
-    padding: 30px 20px 60px;
+    padding: 24px 20px 40px;
   }
 
   .hero-img {
-    max-width: 80%;
+    max-width: 62%;
     align-self: center;
   }
 
   .right-of-hero .logo {
     display: none;
+  }
+
+  .hero-right,
+  .right-of-hero {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 7vw, 3rem);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .frontend-developer {
+    font-size: clamp(0.85rem, 3.6vw, 1.4rem);
+    text-align: center;
+    white-space: nowrap;
   }
 
   .social-media {
