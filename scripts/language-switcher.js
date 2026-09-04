@@ -16,6 +16,8 @@ const translations = {
     "hero.role": `FRONTEND-ENTWICKLER`,
     "a11y.toContact": `Zum Kontakt scrollen`,
     "a11y.toTop": `Nach oben`,
+    "a11y.openMenu": `Menü öffnen`,
+    "a11y.closeMenu": `Menü schließen`,
 
     // Why me
     "whyMe.title": `Warum ich?`,
@@ -152,6 +154,8 @@ const translations = {
     "hero.role": `FRONTEND DEVELOPER`,
     "a11y.toContact": `Scroll to contact`,
     "a11y.toTop": `Back to top`,
+    "a11y.openMenu": `Open menu`,
+    "a11y.closeMenu": `Close menu`,
 
     // Why me
     "whyMe.title": `Why me?`,

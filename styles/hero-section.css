@@ -15,7 +15,6 @@
 }
 
 .hero-img {
-  width: 100%;
   height: auto;
   max-width: 50%;
 }
@@ -124,4 +123,38 @@
 
 .social-btn:hover .icon-hover {
   display: block;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 86px;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+    margin: 0;
+    padding: 30px 20px 60px;
+  }
+
+  .hero-img {
+    max-width: 80%;
+    align-self: center;
+  }
+
+  .right-of-hero .logo {
+    display: none;
+  }
+
+  .social-media {
+    display: none;
+  }
+
+  .arrow-down {
+    padding-top: 40px;
+  }
 }
