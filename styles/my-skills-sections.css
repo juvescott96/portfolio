@@ -126,3 +126,107 @@
 .learning-text {
   max-width: 300px;
 }
+
+.skills-learning-heading {
+  color: var(--primary-color);
+}
+
+.skills-lets-talk-btn {
+  display: none;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .my-skills-section {
+    padding: 40px 20px 60px;
+  }
+
+  .my-skills-section h2 {
+    font-size: clamp(1.6rem, 6vw, 2.25rem);
+  }
+
+  .skills-information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "icons icons"
+      "heading heading"
+      "text shape"
+      "button button";
+    row-gap: 24px;
+    align-items: center;
+    margin-top: 32px;
+    width: 100%;
+  }
+
+  .skill-set {
+    grid-area: icons;
+    width: 100%;
+    max-width: 100%;
+    column-gap: 0px;
+    row-gap: 40px;
+  }
+
+  .icons-skill {
+    gap: 6px;
+  }
+
+  .icons-skill img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icons-skill p {
+    display: none;
+  }
+
+  .currently-learning,
+  .learning-circle {
+    display: contents;
+  }
+
+  .learning-circle::before,
+  .learning-circle::after {
+    display: none;
+  }
+
+  .skills-learning-heading {
+    grid-area: heading;
+    text-align: center;
+    font-size: clamp(1rem, 4.2vw, 1.25rem);
+  }
+
+  .learning-text {
+    grid-area: text;
+    max-width: 100%;
+    font-size: clamp(0.85rem, 3.6vw, 1rem);
+    text-align: left;
+  }
+
+  .learning {
+    grid-area: shape;
+    justify-self: center;
+    width: 100%;
+    max-width: 140px;
+    aspect-ratio: 1 / 1;
+    background-image: url("../assets/img/skill-ellipse.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    align-items: center;
+  }
+
+  .learning-icon p {
+    font-size: clamp(0.6rem, 2.5vw, 0.75rem);
+  }
+
+  .skills-lets-talk-btn {
+    grid-area: button;
+    display: block;
+    justify-self: center;
+    margin-top: 8px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+  }
+}

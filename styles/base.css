@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
   background-color: var(--background-color);
   color: var(--secondary-color);
   margin: 0 auto;
@@ -37,11 +37,13 @@ main {
 }
 
 h1 {
+  font-family: var(--font-primary);
   font-size: clamp(2.5rem, 5vw, 5.5rem);
   font-weight: 400;
 }
 
 h2 {
+  font-family: var(--font-primary);
   font-size: clamp(1.2rem, 3vw, 3rem);
   font-weight: 400;
 }
@@ -65,6 +67,10 @@ h4 {
 
 .bg-color {
   color: var(--background-color);
+}
+
+.logo p:not(.p-developer) {
+  font-family: var(--font-primary);
 }
 
 .arrow svg {
