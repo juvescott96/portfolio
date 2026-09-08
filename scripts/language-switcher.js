@@ -69,6 +69,7 @@ const translations = {
 
     // Contact + form
     "contact.title": `Kontakt`,
+    "contact.workTogether": `Lass uns zusammenarbeiten!`,
     "form.name": `Dein Name`,
     "form.email": `Deine E-Mail`,
     "form.message": `Deine Nachricht`,
@@ -210,6 +211,7 @@ const translations = {
 
     // Contact + form
     "contact.title": `Contact me`,
+    "contact.workTogether": `Let us work together!`,
     "form.name": `Your Name`,
     "form.email": `Your Email`,
     "form.message": `Your Message`,

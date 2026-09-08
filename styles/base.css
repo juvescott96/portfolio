@@ -106,3 +106,11 @@ button {
   border-color: var(--primary-color);
   border: 0.5px solid;
 }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .arrow svg {
+    width: 30px;
+    height: 60px;
+  }
+}
