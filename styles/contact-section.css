@@ -351,6 +351,7 @@ textarea:-webkit-autofill {
   }
 
   .contact-field:focus-within .field-label,
+  .contact-field:focus-within .field-label.error,
   .contact-field.is-valid .field-label {
     opacity: 0;
   }
@@ -365,6 +366,11 @@ textarea:-webkit-autofill {
 
   .contact-form .invalid {
     border-color: #ff4b3e;
+  }
+
+  .contact-field:not(:focus-within) .invalid {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
   }
 
   .contact-form input {
