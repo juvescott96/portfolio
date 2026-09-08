@@ -32,7 +32,7 @@ const translations = {
 
     // Skills
     "skills.title": `Meine Skills`,
-    "skills.learning": `Ich lerne gerade`,
+    "skills.learning": `Was ich gerade lerne`,
     "skills.learningText": `Zeig, dass du motiviert bist, deine Fähigkeiten stetig zu verbessern, innovative Lösungen umzusetzen und bei neuen Technologien am Ball zu bleiben.`,
 
     // Projects
@@ -174,7 +174,7 @@ const translations = {
 
     // Skills
     "skills.title": `My Skills`,
-    "skills.learning": `i am currently learning`,
+    "skills.learning": `What I am currently learning`,
     "skills.learningText": `Show that you are motivated to continually improve. your skills, implement innovative solutions and stay abreast of new technologies.`,
 
     // Projects
