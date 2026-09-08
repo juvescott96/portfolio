@@ -17,7 +17,8 @@
   align-items: center;
   max-width: 1440px;
   width: 100%;
-  margin: 0px 100px;
+  margin-inline: auto;
+  padding-inline: var(--section-inset);
   height: 500px;
 }
 
@@ -37,7 +38,8 @@
 .project-tabs {
   width: 100%;
   max-width: 1440px;
-  margin: 0px 100px;
+  margin-inline: auto;
+  padding-inline: var(--section-inset);
 }
 
 .active-tab {
@@ -166,7 +168,9 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 800px;
+  flex: 1;
+  min-width: 0;
+  max-width: 800px;
 }
 
 .project-info-block {
@@ -203,7 +207,6 @@
   }
 
   .project-tabs {
-    margin: 0;
     display: flex;
     justify-content: start;
     gap: clamp(4px, 2vw, 16px);
@@ -223,7 +226,7 @@
   }
 
   .about-projects {
-    padding: 24px 20px 32px;
+    padding: 24px var(--section-inset) 32px;
     border-radius: 0 0 30px 30px;
   }
 
@@ -236,6 +239,7 @@
     max-width: 100%;
     height: auto;
     margin: 0;
+    padding-inline: 0;
     text-align: left;
   }
 

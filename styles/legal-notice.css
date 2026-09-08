@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 80px 100px 120px;
+  padding: 80px var(--section-inset) 120px;
 }
 
 .legal-notice h2 {
@@ -30,7 +30,6 @@
   line-height: 1.35;
 }
 
-/* Tighter vertical spacing between paragraphs */
 .legal-block p {
   margin-top: 0;
   margin-bottom: 8px;
@@ -64,7 +63,7 @@
 
 @media (max-width: 768px) {
   .legal-notice {
-    padding: 48px 24px 80px;
+    padding: 48px var(--section-inset) 80px;
   }
 
   .legal-notice h1 {

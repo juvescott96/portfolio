@@ -51,7 +51,8 @@ menu {
 .menu-content {
   max-width: 1440px;
   width: 100%;
-  margin: 0px 100px;
+  margin-inline: auto;
+  padding-inline: var(--section-inset);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,8 +81,7 @@ menu {
   }
 
   menu:has(.menu-panel) .menu-content {
-    margin: 0;
-    padding: 20px;
+    padding: 20px var(--section-inset);
     position: relative;
     z-index: 2;
   }

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 100px;
+  padding: 60px var(--section-inset);
   width: 100%;
   gap: 60px;
   position: relative;
@@ -255,7 +255,7 @@ textarea:-webkit-autofill {
 
 .arrow-up {
   position: absolute;
-  right: 100px;
+  right: var(--section-inset);
 }
 
 .arrow-up svg {
@@ -265,7 +265,7 @@ textarea:-webkit-autofill {
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   .contact-section {
-    padding: 40px 20px;
+    padding: 40px var(--section-inset);
     gap: 26px;
   }
 

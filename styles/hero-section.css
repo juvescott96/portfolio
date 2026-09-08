@@ -4,7 +4,8 @@
   align-items: center;
   width: 100%;
   max-width: 1440px;
-  margin: 0px 100px;
+  margin-inline: auto;
+  padding-inline: var(--section-inset);
 }
 
 .hero-right {
@@ -139,8 +140,7 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 32px;
-    margin: 0;
-    padding: 24px 20px 40px;
+    padding: 24px var(--section-inset) 40px;
   }
 
   .hero-img {
