@@ -18,10 +18,12 @@
 }
 
 .skill-set {
-  width: 440px;
+  width: 100%;
+  max-width: 440px;
+  min-width: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 16px;
+  column-gap: clamp(6px, 1vw, 16px);
   row-gap: 40px;
   justify-items: center;
   align-items: start;
@@ -36,8 +38,8 @@
 }
 
 .icons-skill img {
-  width: 60px;
-  height: 60px;
+  width: clamp(45px, 5vw, 60px);
+  height: clamp(45px, 5vw, 60px);
   object-fit: contain;
 }
 
@@ -57,8 +59,8 @@
 
 .learning-circle {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: clamp(350px, 30vw, 400px);
+  height: clamp(350px, 30vw, 400px);
   display: flex;
   justify-content: center;
   align-items: center;
