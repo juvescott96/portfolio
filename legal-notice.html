@@ -44,26 +44,42 @@
                 <p>D.Condello</p>
                 <p class="p-developer font-josefin bg-color">developer</p>
             </div>
-            <div class="nav-links">
-                <a href="./index.html" data-i18n="nav.whyMe">Why me</a>
-                <a href="./index.html" data-i18n="nav.skills">Skills</a>
-                <a href="./index.html" data-i18n="nav.projects">Projects</a>
-                <a href="./index.html#contact" data-i18n="nav.contact">Contact</a>
-            </div>
-            <div class="language-switcher">
-                <a href="#" data-lang="de" class="active" aria-current="true">DE</a>
-                <a href="#" data-lang="en">EN</a>
+            <button class="burger-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                aria-controls="menuPanel" data-i18n-aria-label="a11y.openMenu">
+                <img class="burger-icon" src="./assets/icons/burger.svg" alt="">
+                <img class="close-icon" src="./assets/icons/close.svg" alt="">
+            </button>
+            <div class="menu-panel" id="menuPanel">
+                <div class="menu-shape">
+                    <div class="nav-links">
+                        <a href="./index.html#why-me" data-i18n="nav.whyMe">Why me</a>
+                        <a href="./index.html#skills" data-i18n="nav.skills">Skills</a>
+                        <a href="./index.html#projects" data-i18n="nav.projects">Projects</a>
+                        <a href="./index.html#contact" data-i18n="nav.contact">Contact</a>
+                    </div>
+                    <div class="language-switcher">
+                        <a href="#" data-lang="de" class="active" aria-current="true">DE</a>
+                        <a href="#" data-lang="en">EN</a>
+                    </div>
+                </div>
             </div>
         </div>
     </menu>
 
     <main>
         <section class="legal-notice">
+            <a href="./index.html" class="back-arrow" aria-label="Back to home page" data-i18n-aria-label="a11y.back">
+                <svg width="38" height="89" viewBox="0 0 38 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20.4142 65.0634L27.3265 58.7604C27.7082 58.4123 28.2923 58.4123 28.6741 58.7604L29.1897 59.2306C29.6246 59.6272 29.6246 60.3118 29.1897 60.7084L19.6738 69.3856C19.292 69.7337 18.708 69.7337 18.3262 69.3856L8.81034 60.7084C8.3754 60.3118 8.3754 59.6272 8.81034 59.2306L9.32595 58.7604C9.7077 58.4123 10.2918 58.4123 10.6735 58.7604L17.5858 65.0634L17.5858 21C17.5858 20.4477 18.0335 20 18.5858 20H19.4142C19.9665 20 20.4142 20.4477 20.4142 21L20.4142 65.0634Z"
+                        fill="#89BCD9" />
+                </svg>
+            </a>
             <h2 data-i18n="legal.heading">Legal Notice</h2>
 
 
             <div class="legal-block">
-                <h3 data-i18n="legal.imprintTitle">Imprint</h3>
+                <h4 data-i18n="legal.imprintTitle">Imprint</h4>
                 <ul>
                     <li data-i18n="legal.imprint1">[Student Names List]</li>
                     <li data-i18n="legal.imprint2">[Address of the JOIN operator - e.g. one of the students]</li>
@@ -78,7 +94,8 @@
 
             <div class="legal-block">
                 <h4 data-i18n="legal.acceptTitle">Acceptance of terms</h4>
-                <p data-i18n-html="legal.acceptText">By accessing and using <span class="text-primary">Portfolio</span> (Product), you acknowledge and
+                <p data-i18n-html="legal.acceptText">By accessing and using <span class="text-primary">Portfolio</span>
+                    (Product), you acknowledge and
                     agree to the following terms and
                     conditions, and any policies, guidelines, or amendments thereto that may be presented to you from
                     time to time. We, the listed students, may update or change the terms and conditions from time to
@@ -87,21 +104,23 @@
 
             <div class="legal-block">
                 <h4 data-i18n="legal.scopeTitle">Scope and ownership of the product</h4>
-                <p data-i18n-html="legal.scopeText1"><span class="text-primary">Portfolio</span> has been developed as part of a student group project in
+                <p data-i18n-html="legal.scopeText1"><span class="text-primary">Portfolio</span> has been developed as
+                    part of a student group project in
                     a web development bootcamp at the
                     <span class="text-primary">Developer Akademie GmbH</span>. It has an educational purpose and is not
                     intended for extensive personal &
                     business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any
                     other aspect of quality regarding this Product.
                 </p>
-                <p data-i18n-html="legal.scopeText2">The design of <span class="text-primary">Portfolio</span> is owned by the <span
-                        class="text-primary">Developer Akademie GmbH</span>. Unauthorized use, reproduction,
+                <p data-i18n-html="legal.scopeText2">The design of <span class="text-primary">Portfolio</span> is owned
+                    by the <span class="text-primary">Developer Akademie GmbH</span>. Unauthorized use, reproduction,
                     modification, distribution, or replication of the design is strictly prohibited.</p>
             </div>
 
             <div class="legal-block">
                 <h4 data-i18n="legal.propTitle">Proprietary rights</h4>
-                <p data-i18n-html="legal.propText">Aside from the design owned by <span class="text-primary">Developer Akademie GmbH</span>, we, the
+                <p data-i18n-html="legal.propText">Aside from the design owned by <span class="text-primary">Developer
+                        Akademie GmbH</span>, we, the
                     listed students, retain all
                     proprietary rights in <span class="text-primary">Portfolio</span>, including any associated
                     copyrighted material, trademarks, and
@@ -110,7 +129,8 @@
 
             <div class="legal-block">
                 <h4 data-i18n="legal.useTitle">Use of the product</h4>
-                <p data-i18n-html="legal.useText"><span class="text-primary">Portfolio</span> is intended to be used for lawful purposes only, in
+                <p data-i18n-html="legal.useText"><span class="text-primary">Portfolio</span> is intended to be used for
+                    lawful purposes only, in
                     accordance with all applicable laws and
                     regulations. Any use of <span class="text-primary">Portfolio</span> for illegal activities, or to
                     harass, harm, threaten, or
@@ -120,7 +140,8 @@
 
             <div class="legal-block">
                 <h4 data-i18n="legal.disclaimerTitle">Disclaimer of warranties and limitation of liability</h4>
-                <p data-i18n-html="legal.disclaimerText"><span class="text-primary">Portfolio</span> is provided "as is" without warranty of any kind, whether
+                <p data-i18n-html="legal.disclaimerText"><span class="text-primary">Portfolio</span> is provided "as is"
+                    without warranty of any kind, whether
                     expressed or implied, including
                     but not limited to the implied warranties of merchantability, fitness for a particular purpose, and
                     non-infringement. In no event will we, the listed students, or the Developer Akademie, be liable for
@@ -132,7 +153,8 @@
 
             <div class="legal-block">
                 <h4 data-i18n="legal.indemnityTitle">Indemnity</h4>
-                <p data-i18n-html="legal.indemnityText">You agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie, and
+                <p data-i18n-html="legal.indemnityText">You agree to indemnify, defend and hold harmless us, the listed
+                    students, the Developer Akademie, and
                     our affiliates, partners, officers, directors, agents, and employees, from and against any claim,
                     demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or
                     relating to your use of <span class="text-primary">Portfolio</span> and/or your breach of this Legal
@@ -140,7 +162,8 @@
             </div>
 
             <div class="legal-block legal-meta">
-                <p data-i18n="legal.metaContact">For any questions or notices, please contact us at dustincondello@googlemail.com.</p>
+                <p data-i18n="legal.metaContact">For any questions or notices, please contact us at
+                    dustincondello@googlemail.com.</p>
                 <p data-i18n="legal.metaDate">Date: September 2, 2026</p>
             </div>
         </section>
@@ -177,22 +200,26 @@
             </div>
             <div class="social-media-footer ">
                 <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/mail-footer.svg" alt="Email">
-                    <img class="icon-hover" src="./assets/icons/mail-footer-hover.svg" alt="Email Hover">
+                    <img class="icon-normal" src="./assets/icons/github-dark.png" alt="GitHub">
+                    <img class="icon-hover" src="./assets/icons/github-white.png" alt="">
+                    <img class="icon-mobile" src="./assets/icons/github-mobile.png" alt="">
                 </button>
                 <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/github-footer.svg" alt="GitHub">
-                    <img class="icon-hover" src="./assets/icons/github-footer-hover.svg" alt="GitHub Hover">
+                    <img class="icon-normal" src="./assets/icons/mail-dark.png" alt="Email">
+                    <img class="icon-hover" src="./assets/icons/mail-white.png" alt="">
+                    <img class="icon-mobile" src="./assets/icons/mail-mobile.png" alt="">
                 </button>
                 <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/linkedin-footer.svg" alt="LinkedIn">
-                    <img class="icon-hover" src="./assets/icons/linkedin-footer-hover.svg" alt="LinkedIn Hover">
+                    <img class="icon-normal" src="./assets/icons/linkedin-dark.png" alt="LinkedIn">
+                    <img class="icon-hover" src="./assets/icons/linkedin-white.png" alt="">
+                    <img class="icon-mobile" src="./assets/icons/linkedin-mobile.png" alt="">
                 </button>
             </div>
         </div>
     </footer>
 
     <script src="./scripts/language-switcher.js"></script>
+    <script src="./scripts/mobile-menu.js"></script>
 </body>
 
 </html>

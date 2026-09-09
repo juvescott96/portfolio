@@ -44,21 +44,37 @@
                 <p>D.Condello</p>
                 <p class="p-developer font-josefin bg-color">developer</p>
             </div>
-            <div class="nav-links">
-                <a href="./index.html" data-i18n="nav.whyMe">Why me</a>
-                <a href="./index.html" data-i18n="nav.skills">Skills</a>
-                <a href="./index.html" data-i18n="nav.projects">Projects</a>
-                <a href="./index.html#contact" data-i18n="nav.contact">Contact</a>
-            </div>
-            <div class="language-switcher">
-                <a href="#" data-lang="de" class="active" aria-current="true">DE</a>
-                <a href="#" data-lang="en">EN</a>
+            <button class="burger-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                aria-controls="menuPanel" data-i18n-aria-label="a11y.openMenu">
+                <img class="burger-icon" src="./assets/icons/burger.svg" alt="">
+                <img class="close-icon" src="./assets/icons/close.svg" alt="">
+            </button>
+            <div class="menu-panel" id="menuPanel">
+                <div class="menu-shape">
+                    <div class="nav-links">
+                        <a href="./index.html#why-me" data-i18n="nav.whyMe">Why me</a>
+                        <a href="./index.html#skills" data-i18n="nav.skills">Skills</a>
+                        <a href="./index.html#projects" data-i18n="nav.projects">Projects</a>
+                        <a href="./index.html#contact" data-i18n="nav.contact">Contact</a>
+                    </div>
+                    <div class="language-switcher">
+                        <a href="#" data-lang="de" class="active" aria-current="true">DE</a>
+                        <a href="#" data-lang="en">EN</a>
+                    </div>
+                </div>
             </div>
         </div>
     </menu>
 
     <main>
         <section class="legal-notice">
+            <a href="./index.html" class="back-arrow" aria-label="Back to home page" data-i18n-aria-label="a11y.back">
+                <svg width="38" height="89" viewBox="0 0 38 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20.4142 65.0634L27.3265 58.7604C27.7082 58.4123 28.2923 58.4123 28.6741 58.7604L29.1897 59.2306C29.6246 59.6272 29.6246 60.3118 29.1897 60.7084L19.6738 69.3856C19.292 69.7337 18.708 69.7337 18.3262 69.3856L8.81034 60.7084C8.3754 60.3118 8.3754 59.6272 8.81034 59.2306L9.32595 58.7604C9.7077 58.4123 10.2918 58.4123 10.6735 58.7604L17.5858 65.0634L17.5858 21C17.5858 20.4477 18.0335 20 18.5858 20H19.4142C19.9665 20 20.4142 20.4477 20.4142 21L20.4142 65.0634Z"
+                        fill="#89BCD9" />
+                </svg>
+            </a>
             <h2 data-i18n="privacy.heading">Privacy Policy</h2>
 
             <div class="legal-block">
@@ -202,22 +218,26 @@
             </div>
             <div class="social-media-footer ">
                 <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/mail-footer.svg" alt="Email">
-                    <img class="icon-hover" src="./assets/icons/mail-footer-hover.svg" alt="Email Hover">
+                    <img class="icon-normal" src="./assets/icons/github-dark.png" alt="GitHub">
+                    <img class="icon-hover" src="./assets/icons/github-white.png" alt="">
+                    <img class="icon-mobile" src="./assets/icons/github-mobile.png" alt="">
                 </button>
                 <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/github-footer.svg" alt="GitHub">
-                    <img class="icon-hover" src="./assets/icons/github-footer-hover.svg" alt="GitHub Hover">
+                    <img class="icon-normal" src="./assets/icons/mail-dark.png" alt="Email">
+                    <img class="icon-hover" src="./assets/icons/mail-white.png" alt="">
+                    <img class="icon-mobile" src="./assets/icons/mail-mobile.png" alt="">
                 </button>
                 <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/linkedin-footer.svg" alt="LinkedIn">
-                    <img class="icon-hover" src="./assets/icons/linkedin-footer-hover.svg" alt="LinkedIn Hover">
+                    <img class="icon-normal" src="./assets/icons/linkedin-dark.png" alt="LinkedIn">
+                    <img class="icon-hover" src="./assets/icons/linkedin-white.png" alt="">
+                    <img class="icon-mobile" src="./assets/icons/linkedin-mobile.png" alt="">
                 </button>
             </div>
         </div>
     </footer>
 
     <script src="./scripts/language-switcher.js"></script>
+    <script src="./scripts/mobile-menu.js"></script>
 </body>
 
 </html>
