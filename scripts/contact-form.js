@@ -135,14 +135,16 @@ privacyLabel.addEventListener("mouseleave", () => {
     updatePrivacyIcon(Boolean(privacyError.textContent));
 });
 
-// Refresh visible labels / error messages when the language changes and drop
-// the "sending / sent" message so it does not linger in the old language.
+
 document.addEventListener("languagechange", () => {
     clearFeedback();
     validateForm();
 });
 
-form.addEventListener("submit", (event) => {
+
+const CONTACT_ENDPOINT = "./contact_form_mail.php";
+
+form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     Object.keys(touched).forEach((key) => {
@@ -155,7 +157,25 @@ form.addEventListener("submit", (event) => {
     clearFeedback();
     feedback.textContent = window.i18n.t("form.sending");
 
-    feedbackTimers.push(setTimeout(() => {
+    const payload = {
+        name: fields.name.value.trim(),
+        email: fields.email.value.trim(),
+        message: fields.message.value.trim(),
+    };
+
+    try {
+        const response = await fetch(CONTACT_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || !result.success) {
+            throw new Error(result.error || "Request failed");
+        }
+
         feedback.textContent = window.i18n.t("form.success");
         form.reset();
 
@@ -165,9 +185,12 @@ form.addEventListener("submit", (event) => {
 
         validateForm();
 
-        // Hide the success message again after 3 seconds.
         feedbackTimers.push(setTimeout(() => {
             feedback.textContent = "";
         }, 3000));
-    }, 800));
+    } catch (error) {
+        feedback.textContent = window.i18n.t("form.error");
+    } finally {
+        validateForm();
+    }
 });
