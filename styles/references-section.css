@@ -7,11 +7,6 @@
   gap: 32px;
 }
 
-.references-section h3 {
-  font-family: var(--font-secondary);
-  font-weight: 400;
-}
-
 .references-title-mobile,
 .references-subtitle {
   display: none;
@@ -133,7 +128,6 @@
 
   .references-title-mobile {
     display: block;
-    font-size: clamp(1.6rem, 6vw, 2.25rem);
     text-align: center;
   }
 

@@ -36,14 +36,6 @@
   color: white;
 }
 
-.text-primary {
-  color: var(--primary-color);
-}
-
-.text-secondary {
-  color: var(--secondary-color);
-}
-
 .cursor {
   color: var(--primary-color);
   animation: blink 0.8s steps(1) infinite;
@@ -66,10 +58,6 @@
 @media (max-width: 768px) {
   .why-me-section {
     padding: 40px var(--section-inset) 0;
-  }
-
-  .why-me-section h2 {
-    font-size: clamp(1.6rem, 6vw, 2.25rem);
   }
 
   .why-me-information {

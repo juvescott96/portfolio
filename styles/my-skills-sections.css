@@ -143,10 +143,6 @@
     padding: 40px var(--section-inset) 60px;
   }
 
-  .my-skills-section h2 {
-    font-size: clamp(1.6rem, 6vw, 2.25rem);
-  }
-
   .skills-information {
     display: grid;
     grid-template-columns: 1fr 1fr;

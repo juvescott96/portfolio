@@ -204,10 +204,6 @@
     padding: 20px 0px;
   }
 
-  .my-projects-section h2 {
-    font-size: clamp(1.6rem, 6vw, 2.25rem);
-  }
-
   .project-details {
     padding-top: 32px;
   }

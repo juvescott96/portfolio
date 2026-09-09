@@ -90,8 +90,14 @@ a:hover {
   color: var(--secondary-color);
 }
 
-.primary-color {
+.primary-color,
+.color-primary,
+.text-primary {
   color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
 }
 
 button {
@@ -109,6 +115,10 @@ button {
 
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
+  h2 {
+    font-size: clamp(1.6rem, 6vw, 2.25rem);
+  }
+
   .arrow svg {
     width: 30px;
     height: 60px;
