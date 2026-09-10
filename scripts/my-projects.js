@@ -7,8 +7,8 @@ const projectMeta = [
             "./assets/icons/css.png",
             "./assets/icons/html.png"
         ],
-        liveUrl: "#",
-        githubUrl: "#"
+        liveUrl: "https://join.dustin-condello.de",
+        githubUrl: "https://github.com/vassilia-g/join"
     },
     {
         image: "./assets/img/el-pollo-loco.png",
@@ -17,8 +17,8 @@ const projectMeta = [
             "./assets/icons/css.png",
             "./assets/icons/html.png"
         ],
-        liveUrl: "#",
-        githubUrl: "#"
+        liveUrl: "https://el-pollo-loco.dustin-condello.de",
+        githubUrl: "https://github.com/juvescott96/el-pollo-loco"
     },
     {
         image: "",

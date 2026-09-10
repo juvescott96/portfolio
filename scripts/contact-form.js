@@ -161,6 +161,7 @@ form.addEventListener("submit", async (event) => {
         name: fields.name.value.trim(),
         email: fields.email.value.trim(),
         message: fields.message.value.trim(),
+        website: document.getElementById("website")?.value ?? "",
     };
 
     try {

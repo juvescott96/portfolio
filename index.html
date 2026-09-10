@@ -7,10 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Anta&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anta&family=Figtree:ital,wght@0,300..900;1,300..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Anta&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
     <title>Dustin Condello</title>
     <link rel="stylesheet" href="style.css">
@@ -52,18 +49,18 @@
                     <h1>Dustin Condello</h1>
                     <p class="font-josefin frontend-developer" data-i18n="hero.role">FRONTEND DEVELOPER</p>
                     <div class="social-media ">
-                        <button class="btn-sm social-btn">
-                            <img class="icon-normal" src="./assets/icons/mail-default.png" alt="Email">
+                        <a class="btn-sm social-btn" href="mailto:dustincondello@googlemail.com" aria-label="E-Mail">
+                            <img class="icon-normal" src="./assets/icons/mail-default.png" alt="">
                             <img class="icon-hover" src="./assets/icons/mail-hover-blue.png" alt="">
-                        </button>
-                        <button class="btn-sm social-btn">
-                            <img class="icon-normal" src="./assets/icons/github-default.png" alt="GitHub">
+                        </a>
+                        <a class="btn-sm social-btn" href="#" target="_blank" rel="noopener" aria-label="GitHub">
+                            <img class="icon-normal" src="./assets/icons/github-default.png" alt="">
                             <img class="icon-hover" src="./assets/icons/github-hover-blue.png" alt="">
-                        </button>
-                        <button class="btn-sm social-btn">
-                            <img class="icon-normal" src="./assets/icons/linkedin-default.png" alt="LinkedIn">
+                        </a>
+                        <a class="btn-sm social-btn" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <img class="icon-normal" src="./assets/icons/linkedin-default.png" alt="">
                             <img class="icon-hover" src="./assets/icons/linkedin-hover-blue.png" alt="">
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="arrow-down">
@@ -272,6 +269,8 @@
             </div>
             <h3 class="contact-work-together primary-color" data-i18n="contact.workTogether">Let us work together!</h3>
             <form class="contact-form" id="contactform" novalidate>
+                <input type="text" name="website" id="website" class="honeypot" tabindex="-1"
+                    autocomplete="off" aria-hidden="true">
                 <div class="contact-row">
                     <label class="contact-field">
                         <span class="field-label" id="nameLabel" data-i18n="form.name">Your Name</span>
@@ -352,21 +351,21 @@
                 <p class="p-developer font-josefin bg-color">developer</p>
             </div>
             <div class="social-media-footer ">
-                <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/github-dark.png" alt="GitHub">
+                <a class="btn-sm social-btn" href="#" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img class="icon-normal" src="./assets/icons/github-dark.png" alt="">
                     <img class="icon-hover" src="./assets/icons/github-white.png" alt="">
                     <img class="icon-mobile" src="./assets/icons/github-mobile.png" alt="">
-                </button>
-                <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/mail-dark.png" alt="Email">
+                </a>
+                <a class="btn-sm social-btn" href="mailto:dustincondello@googlemail.com" aria-label="E-Mail">
+                    <img class="icon-normal" src="./assets/icons/mail-dark.png" alt="">
                     <img class="icon-hover" src="./assets/icons/mail-white.png" alt="">
                     <img class="icon-mobile" src="./assets/icons/mail-mobile.png" alt="">
-                </button>
-                <button class="btn-sm social-btn">
-                    <img class="icon-normal" src="./assets/icons/linkedin-dark.png" alt="LinkedIn">
+                </a>
+                <a class="btn-sm social-btn" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <img class="icon-normal" src="./assets/icons/linkedin-dark.png" alt="">
                     <img class="icon-hover" src="./assets/icons/linkedin-white.png" alt="">
                     <img class="icon-mobile" src="./assets/icons/linkedin-mobile.png" alt="">
-                </button>
+                </a>
             </div>
         </div>
     </footer>

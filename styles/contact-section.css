@@ -95,6 +95,15 @@
   gap: 18px;
 }
 
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .contact-row {
   display: flex;
   gap: 20px;

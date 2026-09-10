@@ -1,18 +1,27 @@
 <?php
 
-// CORS headers (for Angular / frontend apps)
-header("Access-Control-Allow-Origin: *");
+$allowedOrigins = [
+    "https://dustin-condello.de",
+    "https://www.dustin-condello.de",
+];
+$origin = $_SERVER["HTTP_ORIGIN"] ?? "";
+
+if (in_array($origin, $allowedOrigins, true)) {
+    header("Access-Control-Allow-Origin: " . $origin);
+}
+
+header("Vary: Origin");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=utf-8");
 
-// ------------------------------------------------------------
-// WICHTIG:
-// Deine eigene Adresse in Zeile 15 setzen!
-// ------------------------------------------------------------
+$siteEmail = "info@dustin-condello.de";        // Sender
+$recipient = "dustincondello@googlemail.com";  // Recipient
 
-// >>> DEINE EMAIL HIER EINTRAGEN <<<
-$siteEmail = "dustincondello@googlemail.com";
+
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_MESSAGE_LENGTH = 5000;
 
 switch ($_SERVER['REQUEST_METHOD']) {
 
@@ -36,11 +45,27 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $email = $params->email ?? '';
         $name = $params->name ?? '';
         $userMessage = $params->message ?? '';
+        $honeypot = $params->website ?? '';
+
+        
+        if (trim($honeypot) !== '') {
+            echo json_encode(['success' => true]);
+            exit;
+        }
 
         // Basic validation
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($name) || empty($userMessage)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty(trim($name)) || empty(trim($userMessage))) {
             http_response_code(400);
             echo json_encode(['success' => false, 'error' => 'Invalid input data']);
+            exit;
+        }
+
+        // Reject oversized payloads.
+        if (mb_strlen($name) > MAX_NAME_LENGTH
+            || mb_strlen($email) > MAX_EMAIL_LENGTH
+            || mb_strlen($userMessage) > MAX_MESSAGE_LENGTH) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'error' => 'Input too long']);
             exit;
         }
 
@@ -49,8 +74,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $safeEmail = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
         $safeMessage = nl2br(htmlspecialchars($userMessage, ENT_QUOTES, 'UTF-8'));
 
-        // Empfängeradresse (nutzt die oben definierte Mail)
-        $recipient = $siteEmail; 
         $subject = 'Website Contact Form';
 
         $mailBody = "
