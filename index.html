@@ -371,11 +371,20 @@
     </footer>
 
 
+    <!-- Data and templates first, page logic afterwards (load order matters). -->
+    <script src="./scripts/translations.js"></script>
+    <script src="./scripts/project-data.js"></script>
+    <script src="./scripts/reference-data.js"></script>
+    <script src="./templates/project-templates.js"></script>
+    <script src="./templates/reference-templates.js"></script>
+
     <script src="./scripts/language-switcher.js"></script>
     <script src="./scripts/mobile-menu.js"></script>
     <script src="./scripts/about-me.js"></script>
     <script src="./scripts/my-projects.js"></script>
+    <script src="./scripts/drag-scroll.js"></script>
     <script src="./scripts/references.js"></script>
+    <script src="./scripts/form-validation.js"></script>
     <script src="./scripts/contact-form.js"></script>
 </body>
 

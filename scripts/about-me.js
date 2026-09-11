@@ -1,3 +1,10 @@
+// Hero typing effect: writes and deletes short "about me" sentences in a loop.
+
+const TYPE_SPEED = 60;
+const DELETE_SPEED = 30;
+const PAUSE_AFTER_WORD = 1000;
+const PAUSE_AFTER_ITEM = 80;
+
 const itemMeta = [
     {
         icon: "./assets/icons/location.png",
@@ -15,6 +22,16 @@ const itemMeta = [
     }
 ];
 
+const aboutIcon = document.getElementById("aboutIcon");
+const typedPrimaryText = document.getElementById("typedPrimaryText");
+const typedSecondaryText = document.getElementById("typedSecondaryText");
+const typedDots = document.getElementById("typedDots");
+
+let itemIndex = 0;
+let letterIndex = 0;
+let isDeleting = false;
+
+/** Builds the sentences in the currently selected language. */
 function buildItems() {
     return itemMeta.map((meta) => ({
         icon: meta.icon,
@@ -27,73 +44,71 @@ function buildItems() {
 
 let items = buildItems();
 
-const typedPrimaryText = document.getElementById("typedPrimaryText");
-const typedSecondaryText = document.getElementById("typedSecondaryText");
-const typedDots = document.getElementById("typedDots");
-
-let itemIndex = 0;
-let letterIndex = 0;
-let isDeleting = false;
-
-function typeEffect() {
-    const currentItem = items[itemIndex];
-
-    aboutIcon.src = currentItem.icon;
-    aboutIcon.alt = currentItem.alt;
-
-    const fullText = currentItem.primaryText + currentItem.secondaryText + currentItem.dots;
-    const visibleText = fullText.substring(0, letterIndex);
-
-    const primaryLength = currentItem.primaryText.length;
-    const secondaryLength = currentItem.secondaryText.length;
-
-    if (visibleText.length <= primaryLength) {
-        typedPrimaryText.textContent = visibleText;
-        typedSecondaryText.textContent = "";
-        typedDots.textContent = "";
-    } else if (visibleText.length <= primaryLength + secondaryLength) {
-        typedPrimaryText.textContent = currentItem.primaryText;
-        typedSecondaryText.textContent = visibleText.substring(primaryLength);
-        typedDots.textContent = "";
-    } else {
-        typedPrimaryText.textContent = currentItem.primaryText;
-        typedSecondaryText.textContent = currentItem.secondaryText;
-        typedDots.textContent = visibleText.substring(primaryLength + secondaryLength);
-    }
-
-    const speed = loopTypingEffect(fullText);
-    setTimeout(typeEffect, speed);
+/** Shows the icon belonging to the current sentence. */
+function updateIcon(item) {
+    aboutIcon.src = item.icon;
+    aboutIcon.alt = item.alt;
 }
 
-typeEffect();
+/** Splits the visible text across the three coloured spans. */
+function renderTypedText(item, visibleText) {
+    const primaryLength = item.primaryText.length;
+    const secondaryEnd = primaryLength + item.secondaryText.length;
 
-// Rebuild the typed sentences in the newly selected language and restart the animation.
-document.addEventListener("languagechange", () => {
+    typedPrimaryText.textContent = visibleText.substring(0, primaryLength);
+    typedSecondaryText.textContent = visibleText.substring(primaryLength, secondaryEnd);
+    typedDots.textContent = visibleText.substring(secondaryEnd);
+}
+
+/** Advances one letter forward and returns the next delay. */
+function typeForward(fullText) {
+    letterIndex++;
+
+    if (letterIndex > fullText.length) {
+        isDeleting = true;
+        return PAUSE_AFTER_WORD;
+    }
+
+    return TYPE_SPEED;
+}
+
+/** Removes one letter and switches to the next sentence when empty. */
+function typeBackward() {
+    letterIndex--;
+
+    if (letterIndex >= 0) {
+        return DELETE_SPEED;
+    }
+
+    isDeleting = false;
+    itemIndex = (itemIndex + 1) % items.length;
+    letterIndex = 0;
+    return PAUSE_AFTER_ITEM;
+}
+
+/** Moves the animation one step on and returns the next delay. */
+function loopTypingEffect(fullText) {
+    return isDeleting ? typeBackward() : typeForward(fullText);
+}
+
+/** Renders the current animation frame and schedules the next one. */
+function typeEffect() {
+    const currentItem = items[itemIndex];
+    const fullText = currentItem.primaryText + currentItem.secondaryText + currentItem.dots;
+
+    updateIcon(currentItem);
+    renderTypedText(currentItem, fullText.substring(0, letterIndex));
+
+    setTimeout(typeEffect, loopTypingEffect(fullText));
+}
+
+/** Rebuilds the sentences in the new language and restarts the animation. */
+function resetTypingEffect() {
     items = buildItems();
     letterIndex = 0;
     isDeleting = false;
-});
-
-function loopTypingEffect(fullText) {
-    if (!isDeleting) {
-        letterIndex++;
-
-        if (letterIndex > fullText.length) {
-            isDeleting = true;
-            return 1000;
-        }
-
-        return 60;
-    }
-
-    letterIndex--;
-
-    if (letterIndex < 0) {
-        isDeleting = false;
-        itemIndex = (itemIndex + 1) % items.length;
-        letterIndex = 0;
-        return 80;
-    }
-
-    return 30;
 }
+
+document.addEventListener("languagechange", resetTypingEffect);
+
+typeEffect();

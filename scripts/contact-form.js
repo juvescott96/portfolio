@@ -1,204 +1,146 @@
-// "Let's talk" buttons (desktop why-me section + mobile skills section) scroll to the contact form.
-document.querySelectorAll(".btn-lets-talk button, .skills-lets-talk-btn").forEach((button) => {
-    button.addEventListener("click", () => {
-        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-    });
-});
+// Contact form: event wiring and sending the message to the PHP mailer.
+// The validation itself lives in scripts/form-validation.js.
+
+const CONTACT_ENDPOINT = "./contact_form_mail.php";
+const SUCCESS_TIMEOUT = 3000;
 
 const form = document.getElementById("contactform");
-const sendButton = document.getElementById("sendButton");
 const feedback = document.getElementById("formFeedback");
-
-const checkboxIcons = {
-    default: "./assets/icons/checkbox-default.png",
-    hover: "./assets/icons/checkbox-hover.png",
-    checked: "./assets/icons/checkbox-checked.png",
-    error: "./assets/icons/checkbox-error.png",
-};
-
-const fields = {
-    name: document.getElementById("name"),
-    email: document.getElementById("email"),
-    message: document.getElementById("message"),
-    privacy: document.getElementById("privacy"),
-};
-
-const labels = {
-    name: document.getElementById("nameLabel"),
-    email: document.getElementById("emailLabel"),
-    message: document.getElementById("messageLabel"),
-};
-
-// Current label text in the active language (key mirrors window.i18n keys).
-function defaultLabel(key) {
-    return window.i18n.t(`form.${key}`);
-}
-
-const checks = {
-    name: document.getElementById("nameCheck"),
-    email: document.getElementById("emailCheck"),
-    message: document.getElementById("messageCheck"),
-};
-
-const privacyLabel = document.getElementById("privacyLabel");
-const privacyIcon = document.getElementById("privacyIcon");
-const privacyError = document.getElementById("privacyError");
-
-const touched = {
-    name: false,
-    email: false,
-    message: false,
-    privacy: false,
-};
 
 // Pending timers for the "sending / sent" feedback message.
 let feedbackTimers = [];
 
+/** Clears the feedback message and any timer still waiting to do so. */
 function clearFeedback() {
     feedbackTimers.forEach((timer) => clearTimeout(timer));
     feedbackTimers = [];
     feedback.textContent = "";
 }
 
-function getErrors() {
-    const name = fields.name.value.trim();
-    const email = fields.email.value.trim();
-    const message = fields.message.value.trim();
-    const t = window.i18n.t;
+/** Collects the values to send, including the honeypot field. */
+function buildPayload() {
+    const values = getFieldValues();
 
     return {
-        name: name ? "" : t("form.errName"),
-        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-            ? ""
-            : t("form.errEmail"),
-        message: message ? "" : t("form.errMessage"),
-        privacy: fields.privacy.checked ? "" : t("form.errPrivacy"),
+        ...values,
+        website: document.getElementById("website")?.value ?? "",
     };
 }
 
-function updatePrivacyIcon(hasError = false) {
-    if (hasError) {
-        privacyIcon.src = checkboxIcons.error;
-        return;
-    }
+/** Posts the payload to the mailer and throws when it was rejected. */
+async function sendContactRequest(payload) {
+    const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+    });
 
-    privacyIcon.src = fields.privacy.checked
-        ? checkboxIcons.checked
-        : checkboxIcons.default;
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok || !result.success) {
+        throw new Error(result.error || "Request failed");
+    }
 }
 
-function validateForm(showOnlyTouched = true) {
-    const errors = getErrors();
-
-    ["name", "email", "message"].forEach((key) => {
-        const shouldShow = !showOnlyTouched || touched[key];
-        const hasError = Boolean(shouldShow && errors[key]);
-        const isValid = Boolean(shouldShow && !errors[key]);
-
-        labels[key].textContent = hasError ? errors[key] : defaultLabel(key);
-        labels[key].classList.toggle("error", hasError);
-
-        fields[key].classList.toggle("invalid", hasError);
-        fields[key].classList.toggle("valid", isValid);
-
-        fields[key].parentElement.classList.toggle("is-valid", isValid);
-    });
-
-    const showPrivacyError = !showOnlyTouched || touched.privacy;
-    const hasPrivacyError = Boolean(showPrivacyError && errors.privacy);
-
-    privacyError.textContent = hasPrivacyError ? errors.privacy : "";
-    updatePrivacyIcon(hasPrivacyError);
-
-    const isValid = Object.values(errors).every((error) => error === "");
-    sendButton.disabled = !isValid;
-
-    return isValid;
-}
-
-["name", "email", "message"].forEach((key) => {
-    fields[key].addEventListener("blur", () => {
-        touched[key] = true;
-        validateForm();
-    });
-
-    fields[key].addEventListener("input", () => {
-        validateForm();
-    });
-});
-
-fields.privacy.addEventListener("change", () => {
-    touched.privacy = true;
-    validateForm();
-});
-
-privacyLabel.addEventListener("mouseenter", () => {
-    if (!fields.privacy.checked && !privacyError.textContent) {
-        privacyIcon.src = checkboxIcons.hover;
-    }
-});
-
-privacyLabel.addEventListener("mouseleave", () => {
-    updatePrivacyIcon(Boolean(privacyError.textContent));
-});
-
-
-document.addEventListener("languagechange", () => {
-    clearFeedback();
-    validateForm();
-});
-
-
-const CONTACT_ENDPOINT = "./contact_form_mail.php";
-
-form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    Object.keys(touched).forEach((key) => {
-        touched[key] = true;
-    });
-
-    if (!validateForm(false)) return;
-
+/** Puts the form into the "sending" state. */
+function startSending() {
     sendButton.disabled = true;
     clearFeedback();
     feedback.textContent = window.i18n.t("form.sending");
+}
 
-    const payload = {
-        name: fields.name.value.trim(),
-        email: fields.email.value.trim(),
-        message: fields.message.value.trim(),
-        website: document.getElementById("website")?.value ?? "",
-    };
+/** Resets the form and shows the success message for a few seconds. */
+function showSuccess() {
+    feedback.textContent = window.i18n.t("form.success");
+    form.reset();
+    setAllTouched(false);
+    validateForm();
 
+    feedbackTimers.push(setTimeout(() => {
+        feedback.textContent = "";
+    }, SUCCESS_TIMEOUT));
+}
+
+/** Sends the form and shows the matching feedback message. */
+async function submitContactForm() {
     try {
-        const response = await fetch(CONTACT_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-        });
-
-        const result = await response.json().catch(() => ({}));
-
-        if (!response.ok || !result.success) {
-            throw new Error(result.error || "Request failed");
-        }
-
-        feedback.textContent = window.i18n.t("form.success");
-        form.reset();
-
-        Object.keys(touched).forEach((key) => {
-            touched[key] = false;
-        });
-
-        validateForm();
-
-        feedbackTimers.push(setTimeout(() => {
-            feedback.textContent = "";
-        }, 3000));
+        await sendContactRequest(buildPayload());
+        showSuccess();
     } catch (error) {
         feedback.textContent = window.i18n.t("form.error");
     } finally {
         validateForm();
     }
-});
+}
+
+/** Validates on submit and sends the form once everything is filled in. */
+async function handleSubmit(event) {
+    event.preventDefault();
+    setAllTouched(true);
+
+    if (!validateForm(false)) {
+        return;
+    }
+
+    startSending();
+    await submitContactForm();
+}
+
+/** Validates the text fields while typing and after leaving them. */
+function initFieldListeners() {
+    TEXT_FIELDS.forEach((key) => {
+        fields[key].addEventListener("blur", () => {
+            touched[key] = true;
+            validateForm();
+        });
+
+        fields[key].addEventListener("input", () => validateForm());
+    });
+}
+
+/** Handles checkbox changes and the hover state of its image. */
+function initPrivacyListeners() {
+    fields.privacy.addEventListener("change", () => {
+        touched.privacy = true;
+        validateForm();
+    });
+
+    privacyLabel.addEventListener("mouseenter", () => showPrivacyHoverIcon());
+    privacyLabel.addEventListener("mouseleave", () => {
+        updatePrivacyIcon(Boolean(privacyError.textContent));
+    });
+}
+
+/** Shows the hover checkbox image while the box is unchecked and valid. */
+function showPrivacyHoverIcon() {
+    if (!fields.privacy.checked && !privacyError.textContent) {
+        privacyIcon.src = checkboxIcons.hover;
+    }
+}
+
+/** "Let's talk" buttons (why-me on desktop, skills on mobile) scroll to the form. */
+function initScrollButtons() {
+    const buttons = document.querySelectorAll(".btn-lets-talk button, .skills-lets-talk-btn");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+}
+
+/** Wires up every contact form listener. */
+function initContactForm() {
+    initScrollButtons();
+    initFieldListeners();
+    initPrivacyListeners();
+
+    document.addEventListener("languagechange", () => {
+        clearFeedback();
+        validateForm();
+    });
+
+    form.addEventListener("submit", handleSubmit);
+}
+
+initContactForm();
