@@ -7,12 +7,6 @@ const references = [
         linkedin: "#"
     },
     {
-        name: "Erika Musterfrau",
-        project: "El Pollo Loco",
-        quote: `"Great communication and a calm problem solver. Dustin turned tricky bugs into small, well-tested fixes."`,
-        linkedin: "#"
-    },
-    {
         name: "John Doe",
         project: "Join",
         quote: `"Motivated and dependable. Dustin took ownership of his tasks and delivered them on time every sprint."`,

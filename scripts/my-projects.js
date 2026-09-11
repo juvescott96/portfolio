@@ -62,8 +62,9 @@ function getProject(index) {
         title: t(`projects.tab${index + 1}`),
         duration: t(`projects.dur${index}`),
         description: t(`projects.desc${index}`),
-        organization: t("projects.org"),
-        teamwork: t(`projects.team${index}`)
+        organization: t(`projects.org${index}`),
+        teamwork: t(`projects.team${index}`),
+        teamTitle: t(`projects.teamTitle${index}`)
     };
 }
 
@@ -94,7 +95,7 @@ function desktopProjectMarkup(project, t) {
                 <div class="project-info-block">
                     <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="Ellipse Icon">
                     <div>
-                        <h3>${t("projects.teamTitle")}</h3>
+                        <h3>${project.teamTitle}</h3>
                         <p>${project.teamwork}</p>
                     </div>
                 </div>`;
@@ -166,7 +167,7 @@ function mobileProjectMarkup(project, t) {
         ? mobileInfoBlock(t("projects.aboutTitle"), project.description)
         : mobileInfoBlock(t("projects.aboutTitle"), project.description)
         + mobileInfoBlock(t("projects.processTitle"), project.organization)
-        + mobileInfoBlock(t("projects.teamTitle"), project.teamwork);
+        + mobileInfoBlock(project.teamTitle, project.teamwork);
 
     const buttons = project.comingSoon ? "" : `
             <div class="project-buttons">

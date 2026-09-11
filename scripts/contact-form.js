@@ -1,3 +1,10 @@
+// "Let's talk" buttons (desktop why-me section + mobile skills section) scroll to the contact form.
+document.querySelectorAll(".btn-lets-talk button, .skills-lets-talk-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    });
+});
+
 const form = document.getElementById("contactform");
 const sendButton = document.getElementById("sendButton");
 const feedback = document.getElementById("formFeedback");
