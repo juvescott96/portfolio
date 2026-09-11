@@ -35,7 +35,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $json = file_get_contents('php://input');
         $params = json_decode($json);
 
-        // Saubere JSON-Fehlerprüfung
+        // Clean JSON error checking
         if (json_last_error() !== JSON_ERROR_NONE) {
             http_response_code(400);
             echo json_encode(['success' => false, 'error' => 'Invalid JSON']);
