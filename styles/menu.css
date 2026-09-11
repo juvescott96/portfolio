@@ -1,4 +1,4 @@
-menu {
+nav {
   background-color: var(--primary-color);
   width: 100%;
   height: 80px;
@@ -72,7 +72,7 @@ menu {
 
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
-  menu:has(.menu-panel) {
+  nav:has(.menu-panel) {
     position: fixed;
     top: 0;
     left: 0;
@@ -80,24 +80,24 @@ menu {
     background-color: var(--background-color);
   }
 
-  menu:has(.menu-panel) .menu-content {
+  nav:has(.menu-panel) .menu-content {
     padding: 20px var(--section-inset);
     position: relative;
     z-index: 2;
   }
 
-  menu:has(.menu-panel) .logo {
+  nav:has(.menu-panel) .logo {
     transform: scale(0.8);
     transform-origin: left center;
     position: relative;
     z-index: 2;
   }
 
-  menu:has(.menu-panel) .logo > svg path {
+  nav:has(.menu-panel) .logo > svg path {
     stroke: var(--primary-color);
   }
 
-  menu:has(.menu-panel) .logo .p-developer {
+  nav:has(.menu-panel) .logo .p-developer {
     color: var(--primary-color);
   }
 
@@ -125,11 +125,11 @@ menu {
     height: 28px;
   }
 
-  menu.menu-open .burger-toggle .burger-icon {
+  nav.menu-open .burger-toggle .burger-icon {
     display: none;
   }
 
-  menu.menu-open .burger-toggle .close-icon {
+  nav.menu-open .burger-toggle .close-icon {
     display: block;
   }
 
@@ -154,7 +154,7 @@ menu {
     z-index: 1;
   }
 
-  menu.menu-open .menu-panel {
+  nav.menu-open .menu-panel {
     opacity: 1;
     visibility: visible;
   }

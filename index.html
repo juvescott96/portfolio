@@ -78,7 +78,7 @@
             </div>
         </section>
     </header>
-    <menu>
+    <nav>
         <div class="menu-content">
             <div class="logo">
                 <svg width="57" height="36" viewBox="0 0 57 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +123,7 @@
                 </div>
             </div>
         </div>
-    </menu>
+    </nav>
     <main>
         <section id="why-me" class="why-me-section">
             <h2 class="primary-color" data-i18n="whyMe.title">Why me?</h2>
@@ -273,20 +273,20 @@
                     autocomplete="off" aria-hidden="true">
                 <div class="contact-row">
                     <label class="contact-field">
-                        <span class="field-label" id="nameLabel" data-i18n="form.name">Your Name</span>
+                        <span class="field-label" id="nameLabel" aria-live="polite" data-i18n="form.name">Your Name</span>
                         <input id="name" name="name" type="text" autocomplete="name">
                         <img src="./assets/icons/done.png" alt="Done" class="field-check" id="nameCheck">
                     </label>
 
                     <label class="contact-field">
-                        <span class="field-label" id="emailLabel" data-i18n="form.email">Your Email</span>
+                        <span class="field-label" id="emailLabel" aria-live="polite" data-i18n="form.email">Your Email</span>
                         <input id="email" name="email" type="email" autocomplete="email">
                         <img src="./assets/icons/done.png" alt="Done" class="field-check" id="emailCheck">
                     </label>
                 </div>
 
                 <label class="contact-field">
-                    <span class="field-label" id="messageLabel" data-i18n="form.message">Your Message</span>
+                    <span class="field-label" id="messageLabel" aria-live="polite" data-i18n="form.message">Your Message</span>
                     <textarea name="message" id="message"></textarea>
                     <img src="./assets/icons/done.png" alt="Done" class="field-check field-check-textarea"
                         id="messageCheck">
@@ -301,10 +301,10 @@
                         and agree to the processing of my data as outlined.
                     </span>
                 </label>
-                <p id="privacyError" class="privacy-error"></p>
+                <p id="privacyError" class="privacy-error" aria-live="polite"></p>
 
                 <div class="form-footer">
-                    <p id="formFeedback"></p>
+                    <p id="formFeedback" aria-live="polite"></p>
                     <button id="sendButton" type="submit" data-i18n="form.send" disabled>Send</button>
                 </div>
             </form>

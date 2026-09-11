@@ -109,6 +109,10 @@ function initPrivacyListeners() {
     privacyLabel.addEventListener("mouseleave", () => {
         updatePrivacyIcon(Boolean(privacyError.textContent));
     });
+    fields.privacy.addEventListener("focus", () => showPrivacyHoverIcon());
+    fields.privacy.addEventListener("blur", () => {
+        updatePrivacyIcon(Boolean(privacyError.textContent));
+    });
 }
 
 /** Shows the hover checkbox image while the box is unchecked and valid. */

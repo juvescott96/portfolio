@@ -102,6 +102,13 @@
   height: 30px;
   border: none;
   padding: 0;
+  border-radius: 50%;
+}
+
+.social-btn:focus-visible {
+  background-color: rgba(137, 207, 240, 0.08);
+  box-shadow: 0 0 0 1px rgba(137, 207, 240, 0.18);
+  outline: none;
 }
 
 .social-btn img {

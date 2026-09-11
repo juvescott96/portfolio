@@ -1,6 +1,6 @@
 // Mobile navigation: toggles the fullscreen overlay panel from the burger button.
 
-const menuElement = document.querySelector("menu");
+const menuElement = document.querySelector("nav");
 const burgerToggle = document.querySelector(".burger-toggle");
 const menuPanel = document.getElementById("menuPanel");
 const MOBILE_BREAKPOINT = 768;
