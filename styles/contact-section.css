@@ -11,14 +11,14 @@
 }
 
 .contact-section p {
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .contact-text-mail-phone {
   display: flex;
   flex-direction: row;
-  max-width: 1440px;
+  max-width: 910px;
   justify-content: space-evenly;
   gap: 30px;
 }
@@ -28,7 +28,7 @@
 }
 
 .contact-text {
-  max-width: 400px;
+  width: 50%;
 }
 
 .contact-mail-phone {
@@ -36,16 +36,14 @@
   flex-direction: column;
   gap: 20px;
 }
-.contact-mail,
-.contact-phone {
+.contact-mail {
   display: flex;
   align-items: center;
   gap: 20px;
   cursor: pointer;
 }
 
-.contact-mail:hover,
-.contact-phone:hover {
+.contact-mail:hover {
   color: var(--primary-color);
 }
 
@@ -68,28 +66,9 @@
   height: 30px;
 }
 
-.icon-contact-phone {
-  width: 30px;
-  height: 30px;
-}
-
-.icon-contact-phone-hover {
-  display: none;
-}
-
-.contact-phone:hover .icon-contact-phone {
-  display: none;
-}
-
-.contact-phone:hover .icon-contact-phone-hover {
-  display: block;
-  width: 30px;
-  height: 30px;
-}
-
 .contact-form {
   width: 100%;
-  max-width: 775px;
+  max-width: 910px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -296,18 +275,13 @@ textarea:-webkit-autofill {
     display: contents;
   }
 
-  .contact-phone {
+  .contact-mail {
     order: 1;
     align-self: flex-start;
   }
 
-  .contact-mail {
-    order: 2;
-    align-self: flex-start;
-  }
-
   .contact-text {
-    order: 3;
+    order: 2;
     align-self: flex-start;
     width: 100%;
     max-width: 100%;
@@ -315,19 +289,19 @@ textarea:-webkit-autofill {
   }
 
   .contact-work-together {
-    order: 4;
+    order: 3;
     display: block;
     text-align: center;
-    font-weight: 300;
-    font-size: clamp(1.2rem, 5vw, 1.6rem);
+
+    font-size: 20px;
   }
 
   .contact-form {
-    order: 5;
+    order: 4;
   }
 
   .arrow-up {
-    order: 6;
+    order: 5;
     position: static;
     right: auto;
     align-self: center;
@@ -406,5 +380,9 @@ textarea:-webkit-autofill {
     font-weight: 300;
     font-size: 16px;
     padding: 12px 28px;
+  }
+
+  .contact-section p {
+    font-size: 16px;
   }
 }

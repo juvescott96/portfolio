@@ -17,7 +17,7 @@
 
 .hero-img {
   height: auto;
-  max-width: 50%;
+  max-width: 45%;
 }
 
 .right-of-hero {
@@ -80,7 +80,7 @@
 }
 
 .frontend-developer {
-  font-size: clamp(1.25rem, 2.5vw, 2.5rem);
+  font-size: 40px;
   font-weight: 350;
 }
 
@@ -128,11 +128,21 @@
   display: block;
 }
 
-/* ---------- Desktop ---------- */
-@media (min-width: 769px) {
-  .hero-section h1 {
-    font-size: clamp(2.5rem, 4vw, 4.5rem);
-    white-space: nowrap;
+@media (max-width: 1400px) {
+  .frontend-developer {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .frontend-developer {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .frontend-developer {
+    font-size: 24px;
   }
 }
 
@@ -167,16 +177,8 @@
     width: 100%;
   }
 
-  h1 {
-    font-size: clamp(1.5rem, 7vw, 3rem);
-    text-align: center;
-    white-space: nowrap;
-  }
-
   .frontend-developer {
-    font-size: clamp(0.85rem, 3.6vw, 1.4rem);
     text-align: center;
-    white-space: nowrap;
   }
 
   .social-media {
@@ -185,5 +187,11 @@
 
   .arrow-down {
     padding-top: 40px;
+  }
+}
+
+@media (max-width: 390px) {
+  .frontend-developer {
+    font-size: 22px;
   }
 }

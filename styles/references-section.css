@@ -7,6 +7,15 @@
   gap: 32px;
 }
 
+.references-title-full {
+  font-size: 32px;
+}
+
+.references-name {
+  font-size: 26px;
+  font-weight: 600;
+}
+
 .references-title-mobile,
 .references-subtitle {
   display: none;
@@ -42,9 +51,9 @@
 
 .references-circle {
   position: relative;
-  flex: 0 0 300px;
-  width: 300px;
-  height: 300px;
+  flex: 0 0 400px;
+  width: 400px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,16 +107,12 @@
   gap: 8px;
 }
 
-.references-circle p {
-  font-size: 1rem;
-  font-weight: 300;
-}
-
 .references-linkedin {
   color: var(--primary-color);
   text-decoration: underline;
   font-family: var(--font-secondary);
-  font-size: 0.9rem;
+  font-size: 16px;
+  padding-top: 40px;
 }
 
 .references-linkedin:hover,
@@ -135,7 +140,7 @@
     display: block;
     color: var(--secondary-color);
     text-align: center;
-    font-size: clamp(0.9rem, 3.6vw, 1rem);
+    font-size: 18px;
     max-width: 360px;
   }
 
@@ -150,15 +155,19 @@
     text-align: left;
   }
 
-  .references-circle h3 {
-    font-size: clamp(0.9rem, 3.6vw, 1.5rem);
-  }
-
-  .references-circle p {
-    font-size: clamp(0.72rem, 3vw, 0.95rem);
+  .references-name {
+    font-size: 18px;
   }
 
   .references-linkedin {
-    font-size: clamp(0.8rem, 3.2vw, 0.9rem);
+    font-size: 14px;
+    padding-top: 4px;
+  }
+
+  .references-circle {
+    width: 290px;
+    height: 290px;
+    flex: 0 0 290px;
+    gap: 12px;
   }
 }

@@ -9,7 +9,7 @@
 html {
   min-height: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 104px;
 }
 
 body {
@@ -21,11 +21,13 @@ body {
   background-color: var(--background-color);
   color: var(--secondary-color);
   margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 104px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,24 +40,29 @@ main {
 
 h1 {
   font-family: var(--font-primary);
-  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-size: 88px;
   font-weight: 400;
 }
 
 h2 {
   font-family: var(--font-primary);
-  font-size: clamp(1.2rem, 3vw, 3rem);
+  font-size: 60px;
   font-weight: 400;
 }
 
 h3 {
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: 54px;
   font-weight: 400;
   margin: 0;
 }
 
 h4 {
   font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: 400;
+}
+
+p {
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -81,7 +88,8 @@ h4 {
 a {
   color: var(--background-color);
   font-family: var(--font-secondary);
-  font-size: clamp(0.8rem, 2vw, 1.625rem);
+  font-size: 26px;
+  font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -113,14 +121,50 @@ button {
   border: 0.5px solid;
 }
 
+@media (max-width: 1400px) {
+  h1 {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 1280px) {
+  h1 {
+    font-size: 68px;
+  }
+}
+
+@media (max-width: 1100px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  a {
+    font-size: 20px;
+  }
+}
+
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   h2 {
-    font-size: clamp(1.6rem, 6vw, 2.25rem);
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 16px;
   }
 
   .arrow svg {
     width: 30px;
     height: 60px;
+  }
+}
+
+@media (max-width: 390px) {
+  h1 {
+    font-size: 40px;
   }
 }

@@ -5,7 +5,7 @@ function referenceCircleTemplate(reference) {
     return `
         <article class="references-circle">
             <div>
-                <h3>${reference.name}</h3>
+                <p class="references-name">${reference.name}</p>
                 <p>Project <span class="primary-color">${reference.project}</span></p>
             </div>
             <p class="learning-text">${reference.quote}</p>

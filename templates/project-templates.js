@@ -7,7 +7,7 @@ function projectInfoBlockTemplate(title, text) {
         <div class="project-info-block">
             <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="Ellipse Icon">
             <div>
-                <h3>${title}</h3>
+                <p class="project-title">${title}</p>
                 <p>${text}</p>
             </div>
         </div>`;
@@ -25,7 +25,7 @@ function projectAboutBlockTemplate(project, t) {
             <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="Ellipse Icon">
             <div>
                 <div class="project-heading-row">
-                    <h3>${t("projects.aboutTitle")}</h3>
+                    <p class="project-title">${t("projects.aboutTitle")}</p>
                     ${projectDurationTemplate(project, t)}
                 </div>
                 <p>${project.description}</p>
@@ -55,7 +55,7 @@ function projectTechnologiesTemplate(project, t) {
 
     return `
         <div class="project-technologies">
-            <h4>${t("projects.technologies")}</h4>
+            <p>${t("projects.technologies")}</p>
             <div class="technology-icons">${icons}</div>
         </div>`;
 }

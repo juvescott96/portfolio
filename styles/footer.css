@@ -40,9 +40,12 @@ footer .social-btn .icon-mobile {
 .copyright {
   color: var(--background-color);
   font-family: var(--font-secondary);
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
   text-decoration: none;
   transition: all 0.3s ease;
+}
+
+.legal-copyright a {
+  font-size: 18px;
 }
 
 .legal-copyright {
@@ -55,6 +58,10 @@ footer .social-btn .icon-mobile {
 @media (max-width: 768px) {
   footer {
     height: 240px;
+  }
+
+  .legal-copyright a {
+    font-size: 16px;
   }
 
   .footer-block {

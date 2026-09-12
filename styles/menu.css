@@ -30,6 +30,8 @@ nav {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .language-switcher a.active {
@@ -70,6 +72,12 @@ nav {
   display: none;
 }
 
+@media (max-width: 1100px) {
+  .language-switcher {
+    gap: 5px;
+  }
+}
+
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   nav:has(.menu-panel) {
@@ -81,7 +89,7 @@ nav {
   }
 
   nav:has(.menu-panel) .menu-content {
-    padding: 20px var(--section-inset);
+    padding: 30px var(--section-inset) 20px;
     position: relative;
     z-index: 2;
   }
