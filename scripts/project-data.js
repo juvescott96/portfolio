@@ -20,17 +20,6 @@ const projectMeta = [
         ],
         liveUrl: "https://el-pollo-loco.dustin-condello.de",
         githubUrl: "https://github.com/juvescott96/el-pollo-loco"
-    },
-    {
-        image: "",
-        comingSoon: true,
-        technologies: [
-            "./assets/icons/javascript.png",
-            "./assets/icons/css.png",
-            "./assets/icons/html.png"
-        ],
-        liveUrl: "#",
-        githubUrl: "#"
     }
 ];
 

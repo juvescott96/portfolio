@@ -13,12 +13,8 @@ function projectInfoBlockTemplate(title, text) {
         </div>`;
 }
 
-/** Duration line of a project; empty for upcoming projects. */
+/** Duration line of a project. */
 function projectDurationTemplate(project, t) {
-    if (project.comingSoon) {
-        return "";
-    }
-
     return `<p>${t("projects.durationLabel")} ${project.duration}</p>`;
 }
 
@@ -37,12 +33,8 @@ function projectAboutBlockTemplate(project, t) {
         </div>`;
 }
 
-/** Live test and GitHub buttons; empty for upcoming projects. */
+/** Live test and GitHub buttons. */
 function projectButtonsTemplate(project, t) {
-    if (project.comingSoon) {
-        return "";
-    }
-
     return `
         <div class="project-buttons">
             <button class="live-test-btn" onclick="window.open('${project.liveUrl}', '_blank')">${t("projects.liveTest")}</button>
@@ -50,12 +42,8 @@ function projectButtonsTemplate(project, t) {
         </div>`;
 }
 
-/** Project image, or the "coming soon" placeholder box. */
-function projectImageTemplate(project, t, altText) {
-    if (project.comingSoon) {
-        return `<div class="project-image project-image-coming-soon">${t("projects.comingSoon")}</div>`;
-    }
-
+/** Project image. */
+function projectImageTemplate(project, altText) {
     return `<img class="project-image" src="${project.image}" alt="${altText}">`;
 }
 
@@ -77,22 +65,18 @@ function projectPreviewTemplate(project, t) {
     return `
         <div class="project-preview">
             ${projectTechnologiesTemplate(project, t)}
-            ${projectImageTemplate(project, t, project.title)}
+            ${projectImageTemplate(project, project.title)}
             ${projectButtonsTemplate(project, t)}
         </div>`;
 }
 
 /** Text column of the desktop layout: about, process and team blocks. */
 function projectTextTemplate(project, t) {
-    const extraBlocks = project.comingSoon
-        ? ""
-        : projectInfoBlockTemplate(t("projects.processTitle"), project.organization)
-        + projectInfoBlockTemplate(project.teamTitle, project.teamwork);
-
     return `
         <div class="project-text">
             ${projectAboutBlockTemplate(project, t)}
-            ${extraBlocks}
+            ${projectInfoBlockTemplate(t("projects.processTitle"), project.organization)}
+            ${projectInfoBlockTemplate(project.teamTitle, project.teamwork)}
         </div>`;
 }
 
@@ -117,15 +101,9 @@ function mobileInfoBlockTemplate(title, text) {
         </div>`;
 }
 
-/** All mobile info blocks of a project, shortened for upcoming projects. */
+/** All mobile info blocks of a project. */
 function mobileInfoBlocksTemplate(project, t) {
-    const aboutBlock = mobileInfoBlockTemplate(t("projects.aboutTitle"), project.description);
-
-    if (project.comingSoon) {
-        return aboutBlock;
-    }
-
-    return aboutBlock
+    return mobileInfoBlockTemplate(t("projects.aboutTitle"), project.description)
         + mobileInfoBlockTemplate(t("projects.processTitle"), project.organization)
         + mobileInfoBlockTemplate(project.teamTitle, project.teamwork);
 }
@@ -133,13 +111,10 @@ function mobileInfoBlocksTemplate(project, t) {
 /** Technology and duration lines above the mobile project image. */
 function mobileMetaTemplate(project, t) {
     const technologies = project.technologies.map(technologyLabel).join(", ");
-    const durationLine = project.comingSoon
-        ? ""
-        : `<p class="project-meta-line">${t("projects.durationLabel")} ${project.duration}</p>`;
 
     return `
         <p class="project-meta-line">${t("projects.technologies")}: ${technologies}</p>
-        ${durationLine}`;
+        <p class="project-meta-line">${t("projects.durationLabel")} ${project.duration}</p>`;
 }
 
 /** Complete mobile markup of a single project. */
@@ -150,7 +125,7 @@ function mobileProjectTemplate(project, t) {
         <div class="project-content project-content-mobile">
             <h3 class="project-name">${name}</h3>
             ${mobileMetaTemplate(project, t)}
-            ${projectImageTemplate(project, t, name)}
+            ${projectImageTemplate(project, name)}
             <div class="project-text">${mobileInfoBlocksTemplate(project, t)}</div>
             ${projectButtonsTemplate(project, t)}
         </div>`;
