@@ -107,19 +107,6 @@
   gap: 8px;
 }
 
-.references-linkedin {
-  color: var(--primary-color);
-  text-decoration: underline;
-  font-family: var(--font-secondary);
-  font-size: 16px;
-  padding-top: 40px;
-}
-
-.references-linkedin:hover,
-.references-linkedin:focus-visible {
-  color: var(--secondary-color);
-}
-
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   .references-section {
@@ -157,11 +144,6 @@
 
   .references-name {
     font-size: 18px;
-  }
-
-  .references-linkedin {
-    font-size: 14px;
-    padding-top: 4px;
   }
 
   .references-circle {

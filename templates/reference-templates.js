@@ -9,6 +9,5 @@ function referenceCircleTemplate(reference) {
                 <p>Project <span class="primary-color">${reference.project}</span></p>
             </div>
             <p class="learning-text">${reference.quote}</p>
-            <a class="references-linkedin" href="${reference.linkedin}" target="_blank" rel="noopener">LinkedIn Profile</a>
         </article>`;
 }
