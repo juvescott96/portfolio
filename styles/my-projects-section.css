@@ -33,6 +33,26 @@
   color: var(--primary-color);
   font-size: 30px;
   font-weight: 500;
+  transition: none;
+}
+
+.project-tab:hover,
+.project-tab:focus-visible,
+.project-tab:active {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.project-tab:not(.active-tab):hover,
+.project-tab:not(.active-tab):focus-visible,
+.project-tab:not(.active-tab):active {
+  background-color: transparent !important;
+}
+
+.project-tab.active-tab:hover,
+.project-tab.active-tab:focus-visible,
+.project-tab.active-tab:active {
+  background-color: var(--color-accent) !important;
 }
 
 .project-tabs {
