@@ -187,7 +187,7 @@ button:active {
 /* ---------- Scroll reveal animation ---------- */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(200px);
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
