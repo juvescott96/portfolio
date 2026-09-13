@@ -126,7 +126,7 @@
 }
 
 .learning-text {
-  max-width: 300px;
+  max-width: 290px;
 }
 
 .skills-learning-heading {
@@ -222,5 +222,18 @@
     border: none;
     font-size: 16px;
     padding: 12px 28px;
+    transition: background-color 125ms ease;
+  }
+
+  .skills-lets-talk-btn:hover,
+  .skills-lets-talk-btn:focus-visible {
+    background-color: #ffffff;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .skills-lets-talk-btn:active {
+    background-color: #ffffff;
+    box-shadow: none;
   }
 }

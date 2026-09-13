@@ -119,6 +119,21 @@ button {
   border-radius: 30px;
   border-color: var(--primary-color);
   border: 0.5px solid;
+  transition:
+    background-color 125ms ease,
+    box-shadow 125ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  background-color: rgba(137, 207, 240, 0.08);
+  box-shadow: 0 0 0 1px rgba(137, 207, 240, 0.18);
+  outline: none;
+}
+
+button:active {
+  background-color: rgba(137, 207, 240, 0.16);
+  box-shadow: inset 0 0 14px 1px rgba(137, 207, 240, 0.4);
 }
 
 @media (max-width: 1400px) {
