@@ -1,14 +1,13 @@
-// Colleague references shown in the references slider.
+// Language-independent references data. Role/quote texts come from
+// window.i18n (scripts/translations.js) via scripts/references.js.
 
 const references = [
     {
         name: "Max Mustermann",
-        project: "Join",
-        quote: `"Dustin is a reliable teammate with a sharp eye for detail. He keeps the code clean and always helps the team move forward."`
+        key: "ref1"
     },
     {
         name: "John Doe",
-        project: "Join",
-        quote: `"Motivated and dependable. Dustin took ownership of his tasks and delivered them on time every sprint."`
+        key: "ref2"
     }
 ];

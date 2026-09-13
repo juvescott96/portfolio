@@ -60,8 +60,10 @@ const translations = {
     "references.title": `Du brauchst eine:n Teamplayer:in? Das sagen meine Kolleg:innen über mich`,
     "references.titleShort": `Brauchst du eine:n Teamplayer:in?`,
     "references.subtitle": `Das sagen meine Kolleg:innen über mich`,
-    "references.role": `Projekt <span class="primary-color">Join</span>`,
-    "references.quote": `"Dustin ist ein sehr kompetenter und engagierter Frontend-Entwickler. Er liefert durchgehend qualitativ hochwertige Arbeit und geht immer die Extrameile, um den Erfolg des Projekts sicherzustellen. Seine Sorgfalt im Detail und sein Talent zum Lösen von Problemen machen ihn zu einem unverzichtbaren Mitglied in jedem Team."`,
+    "references.ref1.role": `Projekt <span class="primary-color">Join</span>`,
+    "references.ref1.quote": `"Dustin ist ein zuverlässiger Teamplayer mit einem scharfen Blick fürs Detail. Er hält den Code sauber und bringt das Team immer voran."`,
+    "references.ref2.role": `Projekt <span class="primary-color">Join</span>`,
+    "references.ref2.quote": `"Motiviert und zuverlässig. Dustin hat Verantwortung für seine Aufgaben übernommen und sie in jedem Sprint pünktlich geliefert."`,
 
     // Contact + form
     "contact.title": `Kontakt`,
@@ -206,8 +208,10 @@ const translations = {
     "references.title": `Need a teamplayer? Here´s what my collegues say about me`,
     "references.titleShort": `Need a teamplayer?`,
     "references.subtitle": `Here´s what my colleagues say about me`,
-    "references.role": `Project <span class="primary-color">Join</span>`,
-    "references.quote": `"Dustin is a highly skilled and dedicated frontend developer. He consistently delivers high-quality work and is always willing to go the extra mile to ensure the success of the project. His attention to detail and problem-solving abilities make him an invaluable member of any team."`,
+    "references.ref1.role": `Project <span class="primary-color">Join</span>`,
+    "references.ref1.quote": `"Dustin is a reliable teammate with a sharp eye for detail. He keeps the code clean and always helps the team move forward."`,
+    "references.ref2.role": `Project <span class="primary-color">Join</span>`,
+    "references.ref2.quote": `"Motivated and dependable. Dustin took ownership of his tasks and delivered them on time every sprint."`,
 
     // Contact + form
     "contact.title": `Contact me`,
