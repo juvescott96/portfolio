@@ -7,6 +7,10 @@
   gap: 32px;
 }
 
+.references-section[hidden] {
+  display: none;
+}
+
 .references-title-full {
   font-size: 32px;
 }

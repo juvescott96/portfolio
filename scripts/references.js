@@ -29,9 +29,16 @@ function renderReferenceCards(track) {
 
 /** Renders all reference cards and enables dragging. */
 function renderReferences() {
+    const section = document.getElementById("referencesSection");
     const track = document.getElementById("referencesTrack");
 
-    if (!track) {
+    if (!section || !track) {
+        return;
+    }
+
+    section.hidden = references.length === 0;
+
+    if (references.length === 0) {
         return;
     }
 
