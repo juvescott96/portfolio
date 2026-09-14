@@ -198,6 +198,10 @@ button:active {
   transform: translateY(0);
 }
 
+.scroll-reveal.no-reveal-transition {
+  transition: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal {
     opacity: 1;
