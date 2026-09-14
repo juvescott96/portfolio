@@ -57,7 +57,7 @@
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   .why-me-section {
-    padding: 40px var(--section-inset) 0;
+    padding: 40px var(--section-inset) 40px;
   }
 
   .why-me-information {

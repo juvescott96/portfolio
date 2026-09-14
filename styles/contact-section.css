@@ -10,10 +10,10 @@
   margin: 0 auto;
 }
 
-.contact-section p {
-  font-size: 20px;
+/* .contact-section p {
+  font-size: 18px;
   font-weight: 400;
-}
+} */
 
 .contact-text-mail-phone {
   display: flex;
@@ -218,7 +218,7 @@
   min-height: 16px;
   margin: -10px 0 0 24px;
   color: #ff4b3e;
-  font-size: 12px;
+  font-size: 14px;
   font-family: var(--font-secondary);
 }
 
