@@ -80,6 +80,10 @@ p {
   font-family: var(--font-primary);
 }
 
+a.logo {
+  color: inherit;
+}
+
 .arrow svg {
   width: 38px;
   height: 90px;
