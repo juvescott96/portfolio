@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 80px var(--section-inset) 120px;
+  padding: 80px 200px;
 }
 
 .legal-notice > h2,
@@ -137,5 +137,11 @@
   .back-arrow svg {
     width: 30px;
     height: 60px;
+  }
+}
+
+@media (max-width: 975px) {
+  .legal-notice > h3[data-i18n="privacy.heading"] {
+    font-size: 36px;
   }
 }
