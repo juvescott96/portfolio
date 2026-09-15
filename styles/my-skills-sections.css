@@ -140,7 +140,7 @@
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   .my-skills-section {
-    padding: 40px var(--section-inset) 60px;
+    padding: 20px var(--section-inset);
   }
 
   .skills-information {

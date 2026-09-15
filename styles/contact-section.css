@@ -266,7 +266,7 @@ textarea:-webkit-autofill {
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   .contact-section {
-    padding: 40px var(--section-inset);
+    padding: 20px var(--section-inset);
     gap: 26px;
   }
 
