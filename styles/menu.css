@@ -174,7 +174,7 @@ nav {
     justify-content: space-evenly;
     width: min(90%, 360px);
     aspect-ratio: 312 / 326;
-    background-image: url("../assets/img/shape-background.png");
+    background-image: url("../assets/img/shape-background.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

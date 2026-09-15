@@ -81,12 +81,12 @@
 }
 
 .references-circle::before {
-  background-image: url("../assets/img/references-ellipse.png");
+  background-image: url("../assets/img/references-ellipse.svg");
   opacity: 1;
 }
 
 .references-circle::after {
-  background-image: url("../assets/img/references-ellipse-hover.png");
+  background-image: url("../assets/img/references-ellipse-hover.svg");
   opacity: 0;
 }
 

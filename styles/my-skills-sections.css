@@ -83,12 +83,12 @@
 }
 
 .learning-circle::before {
-  background-image: url("../assets/img/skill-ellipse.png");
+  background-image: url("../assets/img/skill-ellipse.svg");
   opacity: 1;
 }
 
 .learning-circle::after {
-  background-image: url("../assets/img/skill-ellipse-hover.png");
+  background-image: url("../assets/img/skill-ellipse-hover.svg");
   opacity: 0;
 }
 
@@ -205,7 +205,7 @@
     width: 100%;
     max-width: 140px;
     aspect-ratio: 1.2 / 1;
-    background-image: url("../assets/img/skill-ellipse.png");
+    background-image: url("../assets/img/skill-ellipse.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
