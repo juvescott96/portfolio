@@ -23,6 +23,31 @@
   revealElements.forEach((element) => observer.observe(element));
 
   /**
+   * Handles arriving with a hash already in the URL (e.g. navigating from
+   * another page via "./index.html#skills"). The browser performs its own
+   * hash jump before scroll-reveal's IntersectionObserver has a chance to
+   * react, so without this the target section reveals mid-scroll and the
+   * animation shifts the viewport away from the anchored position.
+   */
+  function revealTargetFromHash() {
+    const targetId = window.location.hash.slice(1);
+    const targetSection = targetId && document.getElementById(targetId);
+
+    if (
+      targetSection &&
+      targetSection.classList.contains("scroll-reveal") &&
+      !targetSection.classList.contains("is-visible")
+    ) {
+      revealInstantly(targetSection);
+      targetSection.scrollIntoView({ behavior: "instant", block: "start" });
+    }
+  }
+
+  if (window.location.hash) {
+    revealTargetFromHash();
+  }
+
+  /**
    * Reveals a section instantly (no transition) so its final, untransformed
    * position is already in place before the browser jumps to the anchor.
    * Without this, an anchor click computes the scroll target while the
