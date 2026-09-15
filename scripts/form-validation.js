@@ -6,10 +6,10 @@ const TEXT_FIELDS = ["name", "email", "message"];
 const sendButton = document.getElementById("sendButton");
 
 const checkboxIcons = {
-    default: "./assets/icons/checkbox-default.png",
-    hover: "./assets/icons/checkbox-hover.png",
-    checked: "./assets/icons/checkbox-checked.png",
-    error: "./assets/icons/checkbox-error.png",
+    default: "./assets/icons/checkbox-default.svg",
+    hover: "./assets/icons/checkbox-hover.svg",
+    checked: "./assets/icons/checkbox-checked.svg",
+    error: "./assets/icons/checkbox-error.svg",
 };
 
 const fields = {

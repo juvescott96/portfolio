@@ -36,7 +36,7 @@ nav {
 
 .language-switcher a.active {
   color: var(--secondary-color);
-  background-image: url("../assets/icons/language-ellipse.png");
+  background-image: url("../assets/icons/language-ellipse.svg");
 }
 
 .language-switcher:has(a:not(.active):hover) a.active,

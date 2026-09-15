@@ -7,14 +7,14 @@ const PAUSE_AFTER_ITEM = 80;
 
 const itemMeta = [
     {
-        icon: "./assets/icons/location.png",
+        icon: "./assets/icons/located.svg",
         altKey: "about.alt0",
         primaryKey: "about.primary0",
         secondaryKey: "about.secondary0",
         dots: "..."
     },
     {
-        icon: "./assets/icons/remote.png",
+        icon: "./assets/icons/remote.svg",
         altKey: "about.alt1",
         primaryKey: "about.primary1",
         secondaryKey: "about.secondary1",

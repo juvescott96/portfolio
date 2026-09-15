@@ -4,9 +4,9 @@ const projectMeta = [
     {
         image: "./assets/img/join.png",
         technologies: [
-            "./assets/icons/javascript.png",
-            "./assets/icons/css.png",
-            "./assets/icons/html.png"
+            "./assets/icons/javascript.svg",
+            "./assets/icons/css.svg",
+            "./assets/icons/html.svg"
         ],
         liveUrl: "https://join.dustin-condello.de",
         githubUrl: "https://github.com/vassilia-g/join"
@@ -14,9 +14,9 @@ const projectMeta = [
     {
         image: "./assets/img/el-pollo-loco.png",
         technologies: [
-            "./assets/icons/javascript.png",
-            "./assets/icons/css.png",
-            "./assets/icons/html.png"
+            "./assets/icons/javascript.svg",
+            "./assets/icons/css.svg",
+            "./assets/icons/html.svg"
         ],
         liveUrl: "https://el-pollo-loco.dustin-condello.de",
         githubUrl: "https://github.com/juvescott96/el-pollo-loco"
@@ -46,6 +46,6 @@ function projectName(title) {
 
 /** Turns a technology icon path into its readable display name. */
 function technologyLabel(iconPath) {
-    const key = iconPath.split("/").pop().replace(/\.png$/, "");
+    const key = iconPath.split("/").pop().replace(/\.svg$/, "");
     return technologyNames[key] || key;
 }

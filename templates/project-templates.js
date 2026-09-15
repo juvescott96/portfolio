@@ -5,7 +5,7 @@
 function projectInfoBlockTemplate(title, text) {
     return `
         <div class="project-info-block">
-            <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="Ellipse Icon">
+            <img class="project-ellipse" src="./assets/icons/ellipse.svg" alt="Ellipse Icon">
             <div>
                 <p class="project-title">${title}</p>
                 <p>${text}</p>
@@ -22,7 +22,7 @@ function projectDurationTemplate(project, t) {
 function projectAboutBlockTemplate(project, t) {
     return `
         <div class="project-info-block">
-            <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="Ellipse Icon">
+            <img class="project-ellipse" src="./assets/icons/ellipse.svg" alt="Ellipse Icon">
             <div>
                 <div class="project-heading-row">
                     <p class="project-title">${t("projects.aboutTitle")}</p>
@@ -94,7 +94,7 @@ function mobileInfoBlockTemplate(title, text) {
     return `
         <div class="project-info-block">
             <div class="project-info-head">
-                <img class="project-ellipse" src="./assets/icons/ellipse.png" alt="">
+                <img class="project-ellipse" src="./assets/icons/ellipse.svg" alt="">
                 <h4>${title}</h4>
             </div>
             <p>${text}</p>
