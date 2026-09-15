@@ -146,6 +146,36 @@
   }
 }
 
+@media (max-height: 850px) {
+  .hero-img {
+    max-width: 35%;
+  }
+
+  .arrow-down {
+    padding-top: 60px;
+  }
+}
+
+@media (max-height: 720px) {
+  .hero-img {
+    max-width: 30%;
+  }
+
+  .arrow-down {
+    padding-top: 30px;
+  }
+
+  .right-of-hero {
+    gap: 10px;
+  }
+}
+
+@media (max-height: 650px) {
+  .hero-img {
+    max-width: 25%;
+  }
+}
+
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   header {
